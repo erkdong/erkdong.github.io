@@ -13,3 +13,7 @@ a {
 .link-inset {
   inset: -0.4rem;
 }
+
+.inverted {
+  filter: invert(100%);
+}
