@@ -25,30 +25,17 @@
       document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
     </script>
 
+    <script src="index.js" defer></script>
+
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
   </head>
   <body class="text-slate-200 bg-zinc-800">
-    <script>
-      function scrollToSection(id) {
-        const element = document.getElementById(id);
-        window.scrollTo({
-          top: element.offsetTop,
-          behavior: "smooth",
-        });
-      }
-
-      window.addEventListener("scroll", () => {
-        const scrollY = window.scrollY;
-        if (scrollY !== 0) {
-          document.getElementById("downArrow").style.visibility = "hidden";
-        } else {
-          document.getElementById("downArrow").style.visibility = "visible";
-        }
-      });
-    </script>
+    <!---------------------------------->
+    <!-- LANDING PAGE -->
+    <!---------------------------------->
 
     <section id="home" class="h-screen w-screen bg-zinc-800">
       <script>
@@ -56,12 +43,12 @@
         // landing page until then so there aren't any flickers.
         document.getElementById("home").style.visibility = "hidden";
         window.addEventListener("load", function () {
-          document.getElementById("home").style.visibility = "visible";
+          onPageLoad();
         });
       </script>
 
       <div class="pl-40 pt-40 flex flex-col relative">
-        <h1 class="text-7xl">[ eric dong ]</h1>
+        <h1 class="text-7xl">eric dong</h1>
         <div class="flex items-center ml-8 mt-16">
           <div class="relative">
             <div
@@ -112,12 +99,21 @@
       </div>
     </section>
 
+    <!---------------------------------->
+    <!-- BACKGROUND -->
+    <!---------------------------------->
+
     <section
       id="background"
-      class="h-screen w-screen bg-zinc-700 flex flex-col"
+      class="relative h-screen w-screen bg-zinc-700 flex flex-col"
     >
+      <p
+        class="animate-pulse absolute text-6xl filter blur-sm slight-blur text-slate-400 right-8 top-8"
+      >
+        background
+      </p>
       <div
-        class="ml-32 mt-20 pl-8 py-3 flex flex-col border-l-4 border-slate-200"
+        class="ml-32 mt-28 pl-8 py-3 flex flex-col border-l-4 border-slate-200"
       >
         <p class="text-3xl">
           Hi there! I'm Eric, an app developer and software consultant.
@@ -148,12 +144,140 @@
       </div>
     </section>
 
-    <section id="work" class="h-screen w-screen bg-zinc-600">
-      <h1>work experience</h1>
+    <!---------------------------------->
+    <!-- WORK -->
+    <!---------------------------------->
+
+    <section id="work" class="relative h-screen w-screen bg-zinc-600 flex">
+      <p
+        class="animate-pulse absolute text-6xl filter blur-sm slight-blur text-slate-400 right-8 top-8"
+      >
+        work experience
+      </p>
+
+      <md-list class="bg-transparent mx-32 my-28 w-full">
+        <md-list-item type="link" class="toggle-work-experience">
+          <p slot="headline" class="text-4xl">Google</p>
+          <p slot="supporting-text">Full time 2019 - 2024</p>
+          <img src="img/google.svg" slot="end" width="50" height="50" />
+
+          <div class="collapsible-content" slot="supporting-text">
+            <div class="mt-6">
+              <p class="text-xl">Cloud Marketplace (2021-2024)</p>
+              <p class="text-md mt-3 w-3/4">
+                Full stack engineer working on Cloud's marketplace platform,
+                where businesses list products or services for
+                purchase/subscription by customers.
+              </p>
+              <p class="text-md mt-2 w-3/4">
+                As one of the first members of a new team formed within this
+                group, my role involved heavy cross-functional collaboration,
+                project leadership, and mentorship of junior engineers. Some
+                notable work:
+              </p>
+              <ul class="mt-2">
+                <li>
+                  Added a rich suite of deal-related actions for buyers and
+                  sellers, reducing deal turnaround time and increasing user
+                  quality of life.
+                </li>
+                <li>
+                  Offered PDF download for marketplace deals, which required a
+                  custom backend PDF generator and saw 100+ downloads each week.
+                </li>
+              </ul>
+              <p class="text-xl mt-5">Google Ads (2019-2021)</p>
+              <p class="text-md mt-3 w-3/4">
+                Frontend engineer for a product used by advertisers to plan
+                their advertising spend.
+              </p>
+              <p class="text-md mt-2 w-3/4">
+                I began my Google career here, rapidly learning and growing
+                thanks to a complex, established product, an abundance of
+                impactful work, and great mentorship. Towards the end of my time
+                here, I was working fairly independently on larger projects. One
+                such project integrated our product into Search Ads 360, a
+                separate advertising platform that enabled advertisers outside
+                of Google Ads (e.g. Yahoo, Bing, etc.).
+              </p>
+            </div>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item type="link" class="toggle-work-experience">
+          <p slot="headline" class="text-4xl">Hyperloop One</p>
+          <p slot="supporting-text">Full time 2017 - 2019</p>
+          <img
+            class="lighten"
+            src="img/hyperloop.svg"
+            slot="end"
+            width="60"
+            height="50"
+          />
+
+          <div class="collapsible-content" slot="supporting-text">
+            <div class="mt-6">
+              <p class="text-xl mt-5">Offboard Software</p>
+              <p class="text-md mt-3 w-3/4">
+                I built and maintained web apps that supported the development
+                of the Hyperloop system. Specifically:
+              </p>
+              <ul class="mt-2 w-3/4">
+                <li>
+                  An app that visualized the data coming out of Hyperloop
+                  simulations by drawing a geographical map and showing the
+                  movement of cars in real time.
+                </li>
+                <li>
+                  A web tool used by internal engineers to design the structure
+                  and mechanics of a Hyperloop system. The science behind the
+                  tool was handled by a Python application developed by a
+                  colleague.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item type="link" class="toggle-work-experience">
+          <p slot="headline" class="text-4xl">Yahoo</p>
+          <p slot="supporting-text">Intern summer 2015 and 2016</p>
+          <img
+            class="lighten"
+            src="img/yahoo.svg"
+            slot="end"
+            width="50"
+            height="50"
+          />
+          <div class="collapsible-content" slot="supporting-text">
+            <div class="mt-6">
+              <p class="text-xl mt-5">Web video player</p>
+              <p class="text-md mt-3 w-3/4">
+                I began my tech career as a small sprout on the web video player
+                team 🌱
+              </p>
+              <p class="text-md mt-2 w-3/4">
+                My most exciting project was integrating the video player into
+                Yahoo Sports Reel (sadly discontinued sometime in 2024). This
+                was a video player experience on the Sports home page that
+                showed recent highlights and clips from the sports world.
+              </p>
+            </div>
+          </div>
+        </md-list-item>
+      </md-list>
     </section>
 
-    <section id="project" class="h-screen w-screen bg-zinc-500">
-      <h1>project experience</h1>
+    <!---------------------------------->
+    <!-- PROJECTS -->
+    <!---------------------------------->
+
+    <section id="project" class="relative h-screen w-screen bg-zinc-500">
+      <p
+        class="animate-pulse absolute text-6xl filter blur-sm slight-blur text-slate-400 right-8 top-8"
+      >
+        project experience
+      </p>
     </section>
   </body>
 </html>

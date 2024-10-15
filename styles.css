@@ -17,3 +17,32 @@ a {
 .inverted {
   filter: invert(100%);
 }
+
+.slight-blur {
+  --tw-blur: blur(3px);
+}
+
+md-list {
+  --md-sys-color-on-surface: rgb(226 232 240);
+  --md-list-item-supporting-text-color: rgb(226 232 240);
+}
+
+.collapsible-content {
+  overflow: hidden;
+  transition: max-height 1s cubic-bezier(0, 1, 0, 1);
+  max-height: 0;
+}
+
+.expanded {
+  max-height: 1000px;
+  transition: max-height 2s;
+}
+
+ul {
+  list-style-type: disc !important;
+  margin-left: 2rem; /* Ensure spacing for bullets */
+}
+
+.lighten {
+  filter: brightness(2);
+}
