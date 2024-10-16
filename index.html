@@ -80,7 +80,7 @@
             ></div>
             <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
           </div>
-          <a class="text-3xl ml-10" onclick="scrollToSection('project')">
+          <a class="text-3xl ml-10" onclick="scrollToSection('projects')">
             project experience
           </a>
         </div>
@@ -126,12 +126,10 @@
     <!-- PROJECTS -->
     <!---------------------------------->
 
-    <section id="project" class="relative h-screen w-screen bg-zinc-500">
-      <p
-        class="animate-pulse absolute text-6xl filter blur-sm slight-blur text-slate-400 right-8 top-8"
-      >
-        project experience
-      </p>
+    <section id="projects" class="relative h-screen w-screen bg-zinc-500">
+      <script>
+        loadPage("src/projects.html", "projects");
+      </script>
     </section>
   </body>
 </html>
