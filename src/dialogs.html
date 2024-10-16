@@ -1,0 +1,43 @@
+<md-dialog id="deweyProject">
+  <div slot="headline">Dewey</div>
+
+  <form slot="content" id="deweyForm" method="dialog">
+    <p class="text-lg">
+      A big problem with note-taking is the time and effort that goes into
+      structuring and organizing them so you're able to look back over them
+      later. This is especially true for random misc information. Think:
+    </p>
+    <ul class="mt-2 text-lg">
+      <li>Your friend's unit number</li>
+      <li>The Airbnb's lock code</li>
+      <li>When you got your last physical</li>
+      <li>Where she got those cool glasses from</li>
+    </ul>
+  </form>
+
+  <div slot="actions">
+    <a href="https://www.heydewey.com" target="_blank">
+      <md-text-button trailing-icon>
+        Open
+        <svg slot="icon" viewBox="0 0 48 48">
+          <path
+            d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"
+          />
+        </svg>
+      </md-text-button>
+    </a>
+    <md-text-button form="deweyForm">Close</md-text-button>
+  </div>
+</md-dialog>
+
+<md-dialog id="twitchProject">
+  <div slot="headline">Twitch store alerts</div>
+
+  <form slot="content" id="twitchForm" method="dialog">
+    <p>Insert gif of the twitch alert in action</p>
+  </form>
+
+  <div slot="actions">
+    <md-text-button form="twitchForm">Close</md-text-button>
+  </div>
+</md-dialog>

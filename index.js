@@ -37,5 +37,39 @@ function loadPage(fileName, elementId) {
     .then((response) => response.text())
     .then((data) => {
       document.getElementById(elementId).innerHTML = data;
+
+      const container = document.getElementById(elementId);
+      // Extract and run any <script> tags from the loaded HTML
+      const scripts = container.querySelectorAll("script");
+      scripts.forEach((script) => {
+        eval(script.innerHTML);
+      });
     });
 }
+
+const projectCards = [
+  {
+    title: "Dewey",
+    img: "../img/dewey.png",
+    description:
+      "Life is full of random misc info. Dewey tracks it all for you.",
+    onClick: () => {
+      document.getElementById("deweyProject").setAttribute("open", "true");
+    },
+  },
+  {
+    title: "Twitch store alerts",
+    img: "../img/twitch.svg",
+    description:
+      "Real time livestream alerts when a purchase is made from the streamer's online store.",
+    onClick: () => {
+      document.getElementById("twitchProject").setAttribute("open", "true");
+    },
+  },
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+];
