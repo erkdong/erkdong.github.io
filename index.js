@@ -31,3 +31,11 @@ window.addEventListener("scroll", () => {
     document.getElementById("downArrow").style.visibility = "visible";
   }
 });
+
+function loadPage(fileName, elementId) {
+  fetch(fileName)
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById(elementId).innerHTML = data;
+    });
+}
