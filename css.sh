@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npx tailwindcss -i ./styles.css -o ./dist/tailwind.css --watch
+npx tailwindcss -i ./css/styles.css -o ./dist/tailwind.css --watch
