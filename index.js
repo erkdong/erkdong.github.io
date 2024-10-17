@@ -17,6 +17,27 @@ const projectCards = [
       document.getElementById("twitchProject").setAttribute("open", "true");
     },
   },
+  {
+    title: "FPS Minesweeper",
+    img: "../img/minesweeper.svg",
+    description:
+      "From my school days, but I'm quite proud of this one. Minesweeper reimagined as an FPS shooter!",
+    onClick: () => {
+      document
+        .getElementById("minesweeperProject")
+        .setAttribute("open", "true");
+
+      const iframe = document
+        .getElementById("minesweeperForm")
+        .querySelector("iframe");
+      if (!iframe.src) {
+        // Delay load so the dialog animation isn't scuffed.
+        setTimeout(function () {
+          iframe.src = "../img/minesweeper/index.html";
+        }, 300);
+      }
+    },
+  },
 ];
 
 // FUNCTION DEFINITIONS
