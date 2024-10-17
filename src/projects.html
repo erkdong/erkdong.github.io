@@ -11,11 +11,12 @@
   <script>
     const container = document.getElementById("projectCards");
     projectCards.forEach((project) => {
+      let cardHtml;
+
       if (project.title) {
-        const cardHtml = `
+        cardHtml = `
           <div class="card filled-card m-6 bg-zinc-200 flex flex-col">
             <img src="${project.img}" class="card-image p-3" />
-
             <div class="p-3 bg-zinc-300 flex-grow">
               <p class="text-lg text-slate-800">${project.title}</p>
               <p class="mt-3 text-md text-slate-600">
@@ -24,25 +25,20 @@
             </div>
           </div>
         `;
-
-        // Convert to an html object so can add the click listener.
-        const temp = document.createElement("div");
-        temp.innerHTML = cardHtml;
-        const cardElement = temp.firstElementChild;
-
-        cardElement.addEventListener("click", () => {
-          project.onClick();
-        });
-
-        container.appendChild(cardElement);
       } else {
-        const cardHtml = `<div class="card m-6 bg-zinc-400"></div>`;
-        const temp = document.createElement("div");
-        temp.innerHTML = cardHtml;
-        const cardElement = temp.firstElementChild;
-
-        container.appendChild(cardElement);
+        cardHtml = `<div class="card m-6 bg-zinc-400"></div>`;
       }
+
+      // Create a temporary container and convert HTML string to DOM element
+      const temp = document.createElement("div");
+      temp.innerHTML = cardHtml;
+      const cardElement = temp.firstElementChild;
+
+      if (project.title && typeof project.onClick === "function") {
+        cardElement.addEventListener("click", project.onClick);
+      }
+
+      container.appendChild(cardElement);
     });
   </script>
 </div>

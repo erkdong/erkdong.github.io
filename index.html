@@ -33,115 +33,139 @@
     />
   </head>
   <body class="text-slate-200 bg-zinc-800">
-    <!---------------------------------->
-    <!-- LANDING PAGE -->
-    <!---------------------------------->
-
-    <section id="home" class="h-screen w-screen bg-zinc-800">
-      <script>
-        // External resources don't load immediately, so delay loading the
-        // landing page until then so there aren't any flickers.
-        document.getElementById("home").style.visibility = "hidden";
-        window.addEventListener("load", function () {
-          onPageLoad();
-        });
-      </script>
-
-      <div class="pl-40 pt-40 flex flex-col relative">
-        <h1 class="text-7xl">eric dong</h1>
-        <div class="flex items-center ml-8 mt-16">
-          <div class="relative">
-            <div
-              class="absolute link-inset w-4 h-4 bg-slate-200 animate-ping"
-            ></div>
-            <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
-          </div>
-          <a class="text-3xl ml-10" onclick="scrollToSection('background')">
-            background
-          </a>
-        </div>
-
-        <div class="flex items-center ml-8 mt-6">
-          <div class="relative">
-            <div
-              class="absolute link-inset w-4 h-4 bg-slate-200 animate-ping"
-            ></div>
-            <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
-          </div>
-          <a class="text-3xl ml-10" onclick="scrollToSection('work')">
-            work experience
-          </a>
-        </div>
-
-        <div class="flex items-center ml-8 mt-6">
-          <div class="relative">
-            <div
-              class="absolute link-inset w-4 h-4 bg-slate-200 animate-ping"
-            ></div>
-            <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
-          </div>
-          <a class="text-3xl ml-10" onclick="scrollToSection('projects')">
-            project experience
-          </a>
+    <div id="smallScreens" class="hidden h-screen w-screen">
+      <div class="flex items-center justify-center h-full w-full">
+        <div class="px-10">
+          <p class="text-6xl">my fault :(</p>
+          <p class="text-2xl mt-6">
+            I haven't adapted this page to smaller screens yet. Please open on a
+            computer.
+          </p>
         </div>
       </div>
-
-      <div class="absolute bottom-1 left-1/2">
-        <md-icon-button
-          id="downArrow"
-          class="animate-bounce"
-          onclick="scrollToSection('background')"
-        >
-          <md-icon class="text-slate-200 text-4xl p-6">
-            keyboard_arrow_down
-          </md-icon>
-        </md-icon-button>
-      </div>
-    </section>
-
-    <!---------------------------------->
-    <!-- BACKGROUND -->
-    <!---------------------------------->
-
-    <section
-      id="background"
-      class="relative h-screen w-screen bg-zinc-700 flex flex-col"
-    >
-      <script>
-        loadPage("src/background.html", "background");
-      </script>
-    </section>
-
-    <!---------------------------------->
-    <!-- WORK -->
-    <!---------------------------------->
-
-    <section id="work" class="relative h-screen w-screen bg-zinc-600 flex">
-      <script>
-        loadPage("src/work.html", "work");
-      </script>
-    </section>
-
-    <!---------------------------------->
-    <!-- PROJECTS -->
-    <!---------------------------------->
-
-    <section
-      id="projects"
-      class="relative h-screen w-screen bg-zinc-500 overflow-hidden"
-    >
-      <script>
-        loadPage("src/projects.html", "projects");
-      </script>
-    </section>
-
-    <!---------------------------------->
-    <!-- DIALOGS -->
-    <!---------------------------------->
-    <div id="dialogs">
-      <script>
-        loadPage("src/dialogs.html", "dialogs");
-      </script>
     </div>
+
+    <div id="largeScreens" class="hidden">
+      <!---------------------------------->
+      <!-- LANDING PAGE -->
+      <!---------------------------------->
+
+      <section id="home" class="h-screen w-screen bg-zinc-800">
+        <script>
+          // External resources don't load immediately, so delay loading the
+          // landing page until then so there aren't any flickers.
+          document.getElementById("home").style.visibility = "hidden";
+          window.addEventListener("load", function () {
+            onPageLoad();
+          });
+        </script>
+
+        <div class="pl-40 pt-40 flex flex-col relative">
+          <h1 class="text-7xl">eric dong</h1>
+          <div class="flex items-center ml-8 mt-16">
+            <div class="relative">
+              <div
+                class="absolute link-inset w-4 h-4 bg-slate-200 animate-ping"
+              ></div>
+              <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
+            </div>
+            <a class="text-3xl ml-10" onclick="scrollToSection('background')">
+              background
+            </a>
+          </div>
+
+          <div class="flex items-center ml-8 mt-6">
+            <div class="relative">
+              <div
+                class="absolute link-inset w-4 h-4 bg-slate-200 animate-ping"
+              ></div>
+              <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
+            </div>
+            <a class="text-3xl ml-10" onclick="scrollToSection('work')">
+              work experience
+            </a>
+          </div>
+
+          <div class="flex items-center ml-8 mt-6">
+            <div class="relative">
+              <div
+                class="absolute link-inset w-4 h-4 bg-slate-200 animate-ping"
+              ></div>
+              <div class="absolute link-inset w-4 h-4 bg-slate-200"></div>
+            </div>
+            <a class="text-3xl ml-10" onclick="scrollToSection('projects')">
+              project experience
+            </a>
+          </div>
+        </div>
+
+        <div class="absolute bottom-1 left-1/2">
+          <md-icon-button
+            id="downArrow"
+            class="animate-bounce"
+            onclick="scrollToSection('background')"
+          >
+            <md-icon class="text-slate-200 text-4xl p-6">
+              keyboard_arrow_down
+            </md-icon>
+          </md-icon-button>
+        </div>
+      </section>
+
+      <!---------------------------------->
+      <!-- BACKGROUND -->
+      <!---------------------------------->
+
+      <section
+        id="background"
+        class="relative h-screen w-screen bg-zinc-700 flex flex-col"
+      >
+        <script>
+          loadPage("src/background.html", "background");
+        </script>
+      </section>
+
+      <!---------------------------------->
+      <!-- WORK -->
+      <!---------------------------------->
+
+      <section id="work" class="relative h-screen w-screen bg-zinc-600 flex">
+        <script>
+          loadPage("src/work.html", "work");
+        </script>
+      </section>
+
+      <!---------------------------------->
+      <!-- PROJECTS -->
+      <!---------------------------------->
+
+      <section
+        id="projects"
+        class="relative h-screen w-screen bg-zinc-500 overflow-hidden"
+      >
+        <script>
+          loadPage("src/projects.html", "projects");
+        </script>
+      </section>
+
+      <!---------------------------------->
+      <!-- DIALOGS -->
+      <!---------------------------------->
+      <div id="dialogs">
+        <script>
+          loadPage("src/dialogs.html", "dialogs");
+        </script>
+      </div>
+    </div>
+
+    <script>
+      const screenWidth = window.screen.width;
+
+      if (screenWidth > 1000) {
+        document.getElementById("largeScreens").classList.remove("hidden");
+      } else {
+        document.getElementById("smallScreens").classList.remove("hidden");
+      }
+    </script>
   </body>
 </html>

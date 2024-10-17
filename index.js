@@ -1,3 +1,26 @@
+const projectCards = [
+  {
+    title: "Dewey",
+    img: "../img/dewey.png",
+    description:
+      "Life is full of random misc info. Dewey tracks it all for you.",
+    onClick: () => {
+      document.getElementById("deweyProject").setAttribute("open", "true");
+    },
+  },
+  {
+    title: "Twitch store alerts",
+    img: "../img/twitch.svg",
+    description:
+      "Real time livestream alerts when a purchase is made from the streamer's online store.",
+    onClick: () => {
+      document.getElementById("twitchProject").setAttribute("open", "true");
+    },
+  },
+];
+
+// FUNCTION DEFINITIONS
+
 function scrollToSection(id) {
   const element = document.getElementById(id);
   window.scrollTo({
@@ -23,15 +46,6 @@ function onPageLoad() {
   }
 }
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  if (scrollY !== 0) {
-    document.getElementById("downArrow").style.visibility = "hidden";
-  } else {
-    document.getElementById("downArrow").style.visibility = "visible";
-  }
-});
-
 function loadPage(fileName, elementId) {
   fetch(fileName)
     .then((response) => response.text())
@@ -47,23 +61,13 @@ function loadPage(fileName, elementId) {
     });
 }
 
-const projectCards = [
-  {
-    title: "Dewey",
-    img: "../img/dewey.png",
-    description:
-      "Life is full of random misc info. Dewey tracks it all for you.",
-    onClick: () => {
-      document.getElementById("deweyProject").setAttribute("open", "true");
-    },
-  },
-  {
-    title: "Twitch store alerts",
-    img: "../img/twitch.svg",
-    description:
-      "Real time livestream alerts when a purchase is made from the streamer's online store.",
-    onClick: () => {
-      document.getElementById("twitchProject").setAttribute("open", "true");
-    },
-  },
-];
+// RUN ON PAGE LOAD
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  if (scrollY !== 0) {
+    document.getElementById("downArrow").style.visibility = "hidden";
+  } else {
+    document.getElementById("downArrow").style.visibility = "visible";
+  }
+});
