@@ -900,9 +900,9 @@ video {
   background-color: transparent;
 }
 
-.bg-zinc-200 {
+.bg-zinc-100 {
   --tw-bg-opacity: 1;
-  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
+  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
 
 .bg-zinc-300 {
@@ -933,11 +933,6 @@ video {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-}
-
-.bg-zinc-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
 
 .p-3 {
@@ -1115,4 +1110,8 @@ md-dialog {
 
 #minesweeperProject {
   max-width: 90%;
+}
+
+#githubLogo {
+  filter: invert(100%);
 }

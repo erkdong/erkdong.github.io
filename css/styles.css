@@ -65,3 +65,7 @@ md-dialog {
 #minesweeperProject {
   max-width: 90%;
 }
+
+#githubLogo {
+  filter: invert(100%);
+}
