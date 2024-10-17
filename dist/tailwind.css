@@ -616,10 +616,6 @@ video {
   visibility: visible;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .absolute {
   position: absolute;
 }
@@ -665,6 +661,10 @@ video {
 
 .ml-10 {
   margin-left: 2.5rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
 }
 
 .ml-32 {
@@ -721,10 +721,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.block {
-  display: block;
 }
 
 .flex {
@@ -834,6 +830,10 @@ video {
   flex-wrap: wrap;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -915,6 +915,11 @@ video {
   padding: 1.5rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .px-36 {
   padding-left: 9rem;
   padding-right: 9rem;
@@ -928,11 +933,6 @@ video {
 .py-36 {
   padding-top: 9rem;
   padding-bottom: 9rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .pl-40 {
@@ -951,6 +951,11 @@ video {
   padding-top: 10rem;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -959,6 +964,11 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .text-6xl {
@@ -979,21 +989,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-8xl {
-  font-size: 6rem;
-  line-height: 1;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .text-slate-200 {
@@ -1069,6 +1064,16 @@ ul {
 
 .lighten {
   filter: brightness(2);
+}
+
+.hover-click {
+  will-change: transform;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.hover-click:hover {
+  transform: scale(1.2);
 }
 
 md-dialog {

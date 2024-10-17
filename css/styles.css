@@ -48,6 +48,16 @@ ul {
   filter: brightness(2);
 }
 
+.hover-click {
+  will-change: transform;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.hover-click:hover {
+  transform: scale(1.2);
+}
+
 md-dialog {
   max-width: 50%;
 }
