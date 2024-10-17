@@ -47,3 +47,7 @@ ul {
 .lighten {
   filter: brightness(2);
 }
+
+md-dialog {
+  max-width: 50%;
+}

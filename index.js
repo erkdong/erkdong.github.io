@@ -66,10 +66,4 @@ const projectCards = [
       document.getElementById("twitchProject").setAttribute("open", "true");
     },
   },
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
 ];

@@ -12,16 +12,25 @@
       <li>The Airbnb's lock code</li>
       <li>When you got your last physical</li>
       <li>Where she got those cool glasses from</li>
+      <li>The names of literally everybody</li>
     </ul>
+
+    <md-divider class="my-4"></md-divider>
+
+    <p class="text-lg">
+      Dewey solves this by using an LLM to read your notes and tell you exactly
+      what you're looking for.
+    </p>
   </form>
 
   <div slot="actions">
     <a href="https://www.heydewey.com" target="_blank">
-      <md-text-button trailing-icon>
-        Open
-        <svg slot="icon" viewBox="0 0 48 48">
+      <md-text-button class="text-lg" trailing-icon>
+        Try it out
+        <svg slot="icon" viewBox="0 0 52 52">
           <path
             d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"
+            transform="scale(1.2)"
           />
         </svg>
       </md-text-button>
@@ -30,11 +39,23 @@
   </div>
 </md-dialog>
 
-<md-dialog id="twitchProject">
+<md-dialog id="twitchProject" class="h-fit max-h-fit">
   <div slot="headline">Twitch store alerts</div>
 
   <form slot="content" id="twitchForm" method="dialog">
-    <p>Insert gif of the twitch alert in action</p>
+    <div class="w-full flex justify-center bg-zinc-700">
+      <img class="w-1/3" src="../img/store-alert.gif" />
+    </div>
+
+    <p class="mt-8 text-xl">
+      This client is a Twitch streamer who also sells merchandise on an online
+      store.
+    </p>
+    <md-divider class="my-4"></md-divider>
+    <p class="mt-4 text-lg">
+      To drive engagement and encourage more purchases, we added this visual
+      alert to her livestream so that the order showed up for all to see.
+    </p>
   </form>
 
   <div slot="actions">
