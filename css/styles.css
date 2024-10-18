@@ -3,6 +3,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  font-size: 18px;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+div,
+span {
+  font-family: "Afacad Flux", sans-serif !important;
+}
+
 a:hover {
   text-decoration: underline;
 }

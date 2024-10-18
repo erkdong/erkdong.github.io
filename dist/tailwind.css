@@ -727,6 +727,14 @@ video {
   margin-top: 2rem;
 }
 
+.mt-24 {
+  margin-top: 6rem;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .block {
   display: block;
 }
@@ -1046,6 +1054,20 @@ video {
 
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+html {
+  font-size: 18px;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+div,
+span {
+  font-family: "Afacad Flux", sans-serif !important;
 }
 
 a:hover {
