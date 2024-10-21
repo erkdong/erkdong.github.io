@@ -55,6 +55,11 @@ Additionally, the LLM stack is deployed using the CI/CD tool [CodePipeline](http
 
 ## Twitch store alerts
 
+| Technologies involved |                                         |
+| --------------------- | --------------------------------------- |
+| Backend               | NodeJS - AWS Lambda - DynamoDB - Stripe |
+| Infrastructure        | AWS (API Gateway - SNS)                 |
+
 This project was deceptively complex. Here's a high level diagram:
 
 ```mermaid
@@ -65,22 +70,44 @@ graph TD;
     apig[API Gateway Websocket]
     webl[Websocket Lambda]
     webdb[(Websocket connection DB)]
-    sub[Alert Lambda]
 
     subgraph sns ["Notification Service (SNS)"]
       alert>Sale Topic]
     end
   end
 
-  user[User makes a purchase] --> pl
-  pl --> stripe["Stripe API (payment processing)"]
+  user{User makes a purchase} --> pl
+  pl --> stripe[/"Stripe API (payment processing)"/]
   stripe --> wh
   wh -- Publish --> alert
 
-  streamer[Streamer opens web client] <--> apig
+  streamer{Streamer opens web client} -- Establish connection --> apig
   apig --> webl
   webl -- Save/delete connection IDs --> webdb
-
-  alert -- Subscribed --> sub
-  sub --> |"1. Get connection ID"| webdb
 ```
+
+Two flows are happening independently of each other.
+
+1. The streamer opens a custom built web page that renders the alert. The idea here is the streamer gives this page's URL to the streaming software, which has an internal browser that opens the page and displays whatever is on it on the livestream.
+
+   - On load, the page establishes a websocket connection with our backend, which saves the connection ID to the database.
+
+2. Separately, the user purchase flow provides a webhook that Stripe invokes when payment is complete. This webhook triggers a Lambda function, which then publishes a Sale topic event to Amazon SNS.
+
+The following happens next:
+
+```mermaid
+graph LR;
+  alert>Sale Topic]
+  lambda[Alert Lambda]
+  webdb[(Websocket connection DB)]
+  apig[API Gateway Websocket]
+  streamer{Streamer web client}
+
+  alert -- Subscribed --> lambda
+  lambda --> |"1 - Get connection ID"| webdb
+  lambda --> |"2 - Send to websocket connection"| apig
+  apig --> |"3 - Send to client"| streamer
+```
+
+The alert lambda is subscribed to the Sale topic published by the webhook lambda. The event object contains the data needed to get the appropriate connection ID from the database, then send the alert and its metadata to the streamer's client.
