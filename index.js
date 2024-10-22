@@ -2,8 +2,7 @@ const projectCards = [
   {
     title: "Dewey",
     img: "../img/dewey.png",
-    description:
-      "Life is full of random misc info. Dewey tracks it all for you.",
+    description: "Manage the chaos of the too-much-information age.",
     onClick: () => {
       document.getElementById("deweyProject").setAttribute("open", "true");
     },
