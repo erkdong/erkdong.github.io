@@ -6,7 +6,11 @@ module.exports = {
     "!./node_modules/**/*", // Ignore node_modules folder
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Afacad Flux", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

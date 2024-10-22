@@ -13,7 +13,10 @@ h2,
 h3,
 p,
 div,
-span {
+span,
+ul,
+li,
+md-text-button {
   font-family: "Afacad Flux", sans-serif !important;
 }
 
