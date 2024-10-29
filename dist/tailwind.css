@@ -667,6 +667,10 @@ video {
   margin-left: 2.5rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .ml-3 {
   margin-left: 0.75rem;
 }
@@ -977,10 +981,6 @@ video {
 
 .pt-40 {
   padding-top: 10rem;
-}
-
-.font-sans {
-  font-family: Afacad Flux, sans-serif;
 }
 
 .text-2xl {
