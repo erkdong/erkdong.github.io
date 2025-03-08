@@ -765,6 +765,10 @@ video {
   max-height: fit-content;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1003,11 +1007,6 @@ video {
   line-height: 1;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .text-7xl {
   font-size: 4.5rem;
   line-height: 1;
@@ -1086,7 +1085,7 @@ a {
 }
 
 .slight-blur {
-  --tw-blur: blur(3px);
+  --tw-blur: blur(5px);
 }
 
 md-list {

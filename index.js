@@ -1,5 +1,16 @@
 const projectCards = [
   {
+    title: "Rafael's personal website",
+    img: "../img/fiverr.svg",
+    description: "Personal website for my client Rafael.",
+    onClick: () => {
+      window.open(
+        "https://d20p80k0sn9dly.cloudfront.net/rafael/index.html",
+        "_blank"
+      );
+    },
+  },
+  {
     title: "Dewey",
     img: "../img/dewey.png",
     description: "Manage the chaos of the too-much-information age.",
@@ -64,10 +75,6 @@ function onPageLoad() {
       collapsibleContent.classList.toggle("expanded");
     });
   }
-
-  // Async load the twitch alert gif so it doesn't block page load.
-  const img = document.getElementById("storeAlertgif");
-  img.src = "../img/store-alert.gif";
 }
 
 function loadPage(fileName, elementId) {

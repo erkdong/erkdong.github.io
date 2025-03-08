@@ -37,7 +37,7 @@ a {
 }
 
 .slight-blur {
-  --tw-blur: blur(3px);
+  --tw-blur: blur(5px);
 }
 
 md-list {
