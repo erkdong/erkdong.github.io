@@ -1,11 +1,22 @@
 const projectCards = [
   {
+    title: "FuturBeats",
+    img: "../img/futurbeats.svg",
+    description: "Landing page for the FuturBeats VST plugin.",
+    onClick: () => {
+      window.open(
+        "https://d2vgxf9eqbi5p.cloudfront.net/futurbeats/index.html",
+        "_blank"
+      );
+    },
+  },
+  {
     title: "Rafael's personal website",
     img: "../img/fiverr.svg",
     description: "Personal website for my client Rafael.",
     onClick: () => {
       window.open(
-        "https://d20p80k0sn9dly.cloudfront.net/rafael/index.html",
+        "https://d2vgxf9eqbi5p.cloudfront.net/rafael/index.html",
         "_blank"
       );
     },
