@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  CloudFormation stack to host this web app from an S3 bucket.
+
+Resources:
+  WebAppS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties: 
+      WebsiteConfiguration:
+        IndexDocument: index.html
+      PublicAccessBlockConfiguration:
+        BlockPublicPolicy: false
+        RestrictPublicBuckets: false
+
+  S3BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref WebAppS3Bucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Sub 'arn:aws:s3:::${WebAppS3Bucket}/*'
+          
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt WebAppS3Bucket.WebsiteURL
+    Description: 'URL for the website hosted on S3'
+  BucketURI:
+    Value: !Sub 's3://${WebAppS3Bucket}'
+    Description: 'URI of the S3 bucket'
+

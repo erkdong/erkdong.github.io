@@ -1,16 +1,8 @@
-// tailwind.config.js
-module.exports = {
-  content: [
-    "./index.html",
-    "./**/*.{js,html}", // Watch all HTML and JS files in your project
-    "!./node_modules/**/*", // Ignore node_modules folder
-  ],
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Afacad Flux", "sans-serif"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
