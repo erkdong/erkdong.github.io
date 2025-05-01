@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useTheme } from "@mui/material/styles";
+import clsx from "clsx";
 
 interface Square {
   row: number;
@@ -167,7 +168,12 @@ const Background: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full overflow-hidden bg-zinc-950"
+      className={clsx(
+        "absolute -top-6 -left-6",
+        "w-screen h-screen",
+        "overflow-hidden bg-zinc-950",
+        "flex flex-col"
+      )}
     />
   );
 };

@@ -5,60 +5,55 @@ import googleLogo from "/img/google.svg";
 import hyperloopLogo from "/img/hyperloop.svg";
 import yahooLogo from "/img/yahoo.svg";
 import uscLogo from "/img/usc.svg";
-
-const BORDER_RADIUS = "40px";
+import { gradientBackground } from "@/const";
 
 const companyLogos = [
-  { src: googleLogo, label: "Google", subheader: "(6 yrs)" },
-  { src: hyperloopLogo, label: "Hyperloop One", subheader: "(3 yrs)" },
-  { src: yahooLogo, label: "Yahoo", subheader: "(intern)" },
+  { src: googleLogo, label: "Google", subheader: "6 years" },
+  { src: hyperloopLogo, label: "Hyperloop One", subheader: "3 years" },
+  { src: yahooLogo, label: "Yahoo", subheader: "1 year" },
 ];
-
-const withAlpha = (themeColor: string, alpha: number) =>
-  themeColor.replace("rgb(", "rgba(").replace(")", `, ${alpha})`);
 
 const EducationAndExperience = () => {
   const theme = useTheme();
 
+  const mainColor = theme.palette.primary.main;
+
   return (
     <div
       className={clsx(
-        "bg-zinc-950",
-        "w-full",
-        "px-4 py-6",
-        "flex flex-col flex-grow",
+        "py-3",
+        "flex flex-col justify-between",
         "items-center text-center"
       )}
-      style={{ borderRadius: BORDER_RADIUS }}
     >
       {/* Education */}
-      <div className={clsx("flex flex-col", "items-center", "p-1")}>
+      <div
+        className={clsx(
+          "w-full",
+          "flex flex-col",
+          "items-center",
+          "my-2 py-3 px-4"
+        )}
+        style={gradientBackground(mainColor)}
+      >
         <img src={uscLogo} alt="USC Logo" style={{ filter: "invert(80%)" }} />
         <p className="my-2 text-xl">University of Southern California</p>
-        <p className="text-lg" style={{ color: theme.palette.secondary.main }}>
+        <p className="text-md" style={{ color: theme.palette.secondary.main }}>
           B.S. Computer Science
         </p>
-        <p className="text-lg" style={{ color: theme.palette.secondary.main }}>
+        <p className="text-md" style={{ color: theme.palette.secondary.main }}>
           M.S. Computer Science
         </p>
       </div>
 
       {/* Industry Experience */}
       <div
-        className={clsx("relative", "mt-6 px-4 py-2", "w-full")}
-        style={{
-          background: `linear-gradient(to bottom, ${withAlpha(
-            theme.palette.primary.main,
-            0
-          )}, ${withAlpha(theme.palette.primary.main, 0.5)}, ${withAlpha(
-            theme.palette.primary.main,
-            0
-          )})`,
-        }}
+        className={clsx("w-full", "relative", "my-2 py-3 px-4")}
+        style={gradientBackground(mainColor)}
       >
         <p className="text-xl mb-6">Industry Experience</p>
 
-        <div className={clsx("flex flex-col", "w-full", "gap-4")}>
+        <div className={clsx("flex flex-col", "w-full", "gap-3", "px-8")}>
           {companyLogos.map(({ src, label, subheader }) => (
             <div className={clsx("flex items-center", "gap-4")}>
               <div
@@ -80,12 +75,12 @@ const EducationAndExperience = () => {
                 />
               </div>
               <div className={clsx("flex flex-col", "text-left")}>
-                <p className="text-md">{label}</p>
+                <p className="text-lg">{label}</p>
                 <p
-                  className="text-sm"
+                  className="text-md"
                   style={{ color: theme.palette.secondary.main }}
                 >
-                  {subheader}
+                  <i>{subheader}</i>
                 </p>
               </div>
             </div>

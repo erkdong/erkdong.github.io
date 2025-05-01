@@ -5,23 +5,23 @@ import clsx from "clsx";
 import { useTheme } from "@mui/material/styles";
 
 import EducationAndExperience from "./components/EducationAndExperience";
+import Skills from "./components/Skills";
+import OctagonContainer from "./components/OctagonContainer";
 
-const BORDER_RADIUS = "40px";
 const BORDER_THICKNESS = "24px";
+const CUT_SIZE = 50;
 
 function App() {
   const theme = useTheme();
 
-  const PanelFrame = ({ children }: { children: React.ReactNode }) => (
-    <div
-      className={clsx("w-full h-full", "border-2")}
-      style={{ borderColor: theme.palette.primary.main, borderRadius: "32px" }}
-    >
-      {children}
-    </div>
-  );
-
-  const panelClassName = clsx("bg-zinc-950", "w-full", "p-2");
+  // const PanelFrame = ({ children }: { children: React.ReactNode }) => (
+  //   <div
+  //     className={clsx("w-full h-full", "border-2")}
+  //     style={{ borderColor: theme.palette.primary.main, borderRadius: "32px" }}
+  //   >
+  //     {children}
+  //   </div>
+  // );
 
   return (
     <div className="min-h-screen bg-transparent">
@@ -34,11 +34,9 @@ function App() {
           color: theme.palette.secondary.light,
         }}
       >
-        <div
+        <OctagonContainer
           className={clsx("relative", "h-full", "overflow-hidden", "flex-grow")}
-          style={{
-            borderRadius: BORDER_RADIUS,
-          }}
+          cut={CUT_SIZE}
         >
           {/* Trapezoid thing with title name */}
           <div
@@ -55,11 +53,11 @@ function App() {
               clipPath: "polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%)",
             }}
           >
-            <p className="text-3xl">ERIC DONG</p>
+            <p className="text-4xl">ERIC DONG</p>
           </div>
 
           <Background />
-        </div>
+        </OctagonContainer>
 
         <div
           className={clsx("flex flex-col", "w-1/5")}
@@ -68,23 +66,32 @@ function App() {
           }}
         >
           {/* Profile picture */}
-          <div
-            className={panelClassName}
-            style={{ borderRadius: BORDER_RADIUS, aspectRatio: "1/1" }}
-          >
-            <PanelFrame>
-              <p>profile picture</p>
-            </PanelFrame>
-          </div>
-
-          <EducationAndExperience />
-
-          <div
-            className={panelClassName}
-            style={{ borderRadius: BORDER_RADIUS, aspectRatio: "1/1" }}
+          <OctagonContainer
+            className={clsx("bg-zinc-950", "w-full", "p-2")}
+            style={{ aspectRatio: "1/1" }}
+            cut={CUT_SIZE}
           >
             <p>profile picture</p>
-          </div>
+          </OctagonContainer>
+
+          <OctagonContainer
+            className={clsx(
+              "bg-zinc-950",
+              "w-full",
+              "flex-grow",
+              "overflow-scroll"
+            )}
+            cut={CUT_SIZE}
+          >
+            <EducationAndExperience />
+          </OctagonContainer>
+
+          <OctagonContainer
+            className={clsx("bg-zinc-950", "w-full")}
+            cut={CUT_SIZE}
+          >
+            <Skills />
+          </OctagonContainer>
         </div>
       </div>
     </div>
