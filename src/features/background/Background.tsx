@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useTheme } from "@mui/material/styles";
 
 interface Square {
   row: number;
@@ -10,11 +11,14 @@ const GAP = 10;
 const SQUARE_SIZE = 150;
 const FADE_FACTOR = 0.004;
 const UPDATE_INTERVAL = 1000 / 30; // 30 FPS
-const BORDER_STYLE = "2px solid rgb(50, 50, 100)";
-const MIN_SCALE = 0.85;
-const SCALE_FACTOR = 0.009;
+const MIN_SCALE = 0.92; // Minimum scale for the squares
+const MIN_OPACITY = 0.03; // Minimum opacity for the squares
+
+// Larger => Squares must be closer to the mouse before scaling
+const SCALE_FACTOR = 0.01;
 
 const Background: React.FC = () => {
+  const theme = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);
   const squaresRef = useRef<Square[]>([]);
   const gridContainerRef = useRef<HTMLDivElement | null>(null);
@@ -28,7 +32,7 @@ const Background: React.FC = () => {
       width: ${SQUARE_SIZE}px;
       height: ${SQUARE_SIZE}px;
       background: none;
-      border: ${BORDER_STYLE};
+      border: 2px solid ${theme.palette.primary.dark};
       border-radius: 10px;
       opacity: 0;
       will-change: opacity, transform;
@@ -116,6 +120,7 @@ const Background: React.FC = () => {
   // Animate the squares
   useEffect(() => {
     const animate = (timestamp: number) => {
+      // Restrict the animation to 30 FPS
       if (timestamp - lastUpdateRef.current < UPDATE_INTERVAL) {
         animationFrameRef.current = requestAnimationFrame(animate);
         return;
@@ -135,7 +140,10 @@ const Background: React.FC = () => {
         );
 
         // Calculate opacity and scale based on distance
-        const opacity = Math.min(0.4, Math.exp(-distance * FADE_FACTOR));
+        const opacity = Math.max(
+          MIN_OPACITY,
+          Math.exp(-distance * FADE_FACTOR)
+        );
         const scale = Math.max(
           MIN_SCALE,
           1 - Math.exp(-distance * SCALE_FACTOR)
@@ -159,7 +167,7 @@ const Background: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 overflow-hidden bg-zinc-950 -z-50"
+      className="w-full h-full overflow-hidden bg-zinc-950"
     />
   );
 };

@@ -1,16 +1,16 @@
 import { createTheme } from "@mui/material/styles";
-import { blue, grey, red } from "@mui/material/colors";
+import { red, grey } from "@mui/material/colors";
 
 export const palette = {
   primary: {
-    light: grey[400],
-    main: grey[600],
-    dark: grey[800],
+    light: "rgb(150, 150, 190)",
+    main: "rgb(80, 80, 120)",
+    dark: "rgb(50, 50, 90)",
   },
   secondary: {
-    light: blue[400],
-    main: blue[600],
-    dark: blue[800],
+    light: grey[300],
+    main: grey[600],
+    dark: grey[900],
   },
   error: {
     main: red[700],
