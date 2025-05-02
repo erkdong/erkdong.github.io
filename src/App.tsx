@@ -4,24 +4,13 @@ import "./App.css";
 import clsx from "clsx";
 import { useTheme } from "@mui/material/styles";
 
-import EducationAndExperience from "./components/EducationAndExperience";
-import Skills from "./components/Skills";
 import OctagonContainer from "./components/OctagonContainer";
-
-const BORDER_THICKNESS = "24px";
-const CUT_SIZE = 50;
+import DisplayScreen from "./features/display-screen/DisplayScreen";
+import StatPanel from "./features/stat-panel/StatPanel";
+import { BORDER_THICKNESS, CUT_SIZE } from "./const";
 
 function App() {
   const theme = useTheme();
-
-  // const PanelFrame = ({ children }: { children: React.ReactNode }) => (
-  //   <div
-  //     className={clsx("w-full h-full", "border-2")}
-  //     style={{ borderColor: theme.palette.primary.main, borderRadius: "32px" }}
-  //   >
-  //     {children}
-  //   </div>
-  // );
 
   return (
     <div className="min-h-screen bg-transparent">
@@ -56,43 +45,12 @@ function App() {
             <p className="text-4xl">ERIC DONG</p>
           </div>
 
+          <DisplayScreen />
+
           <Background />
         </OctagonContainer>
 
-        <div
-          className={clsx("flex flex-col", "w-1/5")}
-          style={{
-            gap: BORDER_THICKNESS,
-          }}
-        >
-          {/* Profile picture */}
-          <OctagonContainer
-            className={clsx("bg-zinc-950", "w-full", "p-2")}
-            style={{ aspectRatio: "1/1" }}
-            cut={CUT_SIZE}
-          >
-            <p>profile picture</p>
-          </OctagonContainer>
-
-          <OctagonContainer
-            className={clsx(
-              "bg-zinc-950",
-              "w-full",
-              "flex-grow",
-              "overflow-scroll"
-            )}
-            cut={CUT_SIZE}
-          >
-            <EducationAndExperience />
-          </OctagonContainer>
-
-          <OctagonContainer
-            className={clsx("bg-zinc-950", "w-full")}
-            cut={CUT_SIZE}
-          >
-            <Skills />
-          </OctagonContainer>
-        </div>
+        <StatPanel />
       </div>
     </div>
   );

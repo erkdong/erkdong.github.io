@@ -170,6 +170,7 @@ const Background: React.FC = () => {
       ref={containerRef}
       className={clsx(
         "absolute -top-6 -left-6",
+        "-z-10",
         "w-screen h-screen",
         "overflow-hidden bg-zinc-950",
         "flex flex-col"

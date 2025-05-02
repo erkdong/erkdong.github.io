@@ -29,10 +29,11 @@ const Skills = () => {
 
       {/* For each stack area */}
       {skills.map((area) => (
-        <div className={clsx("flex", "gap-2")}>
+        <div key={area.join("-")} className={clsx("flex", "gap-2")}>
           {/* For each skill in the area */}
           {area.map((skill) => (
             <div
+              key={skill}
               className={clsx("border-2", "py-1 px-2", "rounded-full")}
               style={{ borderColor: theme.palette.primary.light }}
             >

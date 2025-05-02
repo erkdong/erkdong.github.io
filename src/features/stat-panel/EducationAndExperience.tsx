@@ -36,7 +36,13 @@ const EducationAndExperience = () => {
         )}
         style={gradientBackground(mainColor)}
       >
-        <img src={uscLogo} alt="USC Logo" style={{ filter: "invert(80%)" }} />
+        <img
+          src={uscLogo}
+          alt="USC Logo"
+          className={clsx("max-w-32")}
+          style={{ width: "10vh", filter: "invert(80%)" }}
+        />
+
         <p className="my-2 text-xl">University of Southern California</p>
         <p className="text-md" style={{ color: theme.palette.secondary.main }}>
           B.S. Computer Science
@@ -55,7 +61,7 @@ const EducationAndExperience = () => {
 
         <div className={clsx("flex flex-col", "w-full", "gap-3", "px-8")}>
           {companyLogos.map(({ src, label, subheader }) => (
-            <div className={clsx("flex items-center", "gap-4")}>
+            <div key={src} className={clsx("flex items-center", "gap-4")}>
               <div
                 className={clsx(
                   "flex justify-center items-center",
