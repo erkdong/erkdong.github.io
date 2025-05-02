@@ -1,0 +1,12 @@
+.company-card {
+  transform: skewX(-30deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.company-card:active {
+  transform: skewX(-30deg) scale(0.9);
+}
+
+.company-card:hover {
+  background-color: rgba(80, 80, 120, 0.5) !important;
+}

@@ -10,7 +10,9 @@ import { useTheme } from "@mui/material/styles";
 import rightArrow from "/img/arrow-right.png";
 import leftArrow from "/img/arrow-left.png";
 import clsx from "clsx";
-import WorkPage from "./pages/WorkPage";
+import WorkPage from "./pages/work-page/WorkPage";
+
+import "./DisplayScreen.css";
 
 const DisplayScreen = () => {
   const dispatch = useAppDispatch();
@@ -57,6 +59,7 @@ const DisplayScreen = () => {
         disabled={!canGoPrevious}
       >
         <div
+          className={`${canGoPrevious ? "nav-button-hover" : ""}`}
           style={{
             maskImage: `url(${leftArrow})`,
             ...navButtonStyle(canGoPrevious),
@@ -70,6 +73,7 @@ const DisplayScreen = () => {
         disabled={!canGoNext}
       >
         <div
+          className={`${canGoNext ? "nav-button-hover" : ""}`}
           style={{
             maskImage: `url(${rightArrow})`,
             ...navButtonStyle(canGoNext),

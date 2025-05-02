@@ -12,3 +12,4 @@ export const gradientBackground = (color: string) => ({
 
 export const BORDER_THICKNESS = "24px";
 export const CUT_SIZE = 50;
+export const TYPEWRITER_SPEED = 5;

@@ -16,9 +16,12 @@ const ContentWindow = ({ children, className, style }: ContentWindowProps) => {
     <div
       className={clsx(
         "relative",
-        "w-full h-full",
+        "w-full",
         "flex flex-col",
         "gap-4",
+        "transition-all",
+        "duration-1000",
+        "ease-in-out",
         className
       )}
       style={{
