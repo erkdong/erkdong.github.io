@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export enum DisplayScreenPage {
   LandingPage = "LandingPage",
   WorkPage = "WorkPage",
+  ProjectsPage = "ProjectsPage",
 }
 
 interface DisplayScreenPageState {
@@ -11,7 +12,11 @@ interface DisplayScreenPageState {
 }
 
 const initialState: DisplayScreenPageState = {
-  pages: [DisplayScreenPage.LandingPage, DisplayScreenPage.WorkPage],
+  pages: [
+    DisplayScreenPage.LandingPage,
+    DisplayScreenPage.WorkPage,
+    DisplayScreenPage.ProjectsPage,
+  ],
   currentPageIdx: 0,
 };
 

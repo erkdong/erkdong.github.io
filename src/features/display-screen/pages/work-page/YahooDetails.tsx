@@ -4,13 +4,13 @@ import CompanyTextElement from "./CompanyTextElement";
 const YahooDetails = () => {
   return (
     <div className={clsx("")}>
-      <CompanyTextElement text="Yahoo" className="text-4xl" />
+      <CompanyTextElement text="Yahoo" className="text-2xl" />
       <CompanyTextElement
         text="Intern summer 2015 & 2016"
         className="text-md mt-1"
       />
 
-      <CompanyTextElement text="Web Video Player" className="text-2xl mt-4" />
+      <CompanyTextElement text="Web Video Player" className="text-xl mt-4" />
       <CompanyTextElement
         text="It all began here as a small sprout on the web video player team 🌱"
         className="text-md mt-4"

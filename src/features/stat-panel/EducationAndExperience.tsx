@@ -77,7 +77,7 @@ const EducationAndExperience = () => {
                   src={src}
                   width={40}
                   height={40}
-                  style={{ filter: "brightness(1)" }}
+                  style={{ maxWidth: "unset" }}
                 />
               </div>
               <div className={clsx("flex flex-col", "text-left")}>

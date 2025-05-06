@@ -22,7 +22,9 @@ enum Company {
 const WorkPage = () => {
   const theme = useTheme();
 
-  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [selectedCompany, setSelectedCompany] = useState<Company>(
+    Company.GOOGLE
+  );
 
   const companies = [
     {
@@ -58,7 +60,7 @@ const WorkPage = () => {
         {/* Introduction */}
         <ContentWindow className={clsx("px-7 py-6")}>
           <TypewriterText
-            text="Here are some of the companies I've worked at — click to learn more about what I did there."
+            text="Here are the companies I've worked at — click to see what I was up to."
             className={clsx("text-xl")}
             speed={TYPEWRITER_SPEED}
           />

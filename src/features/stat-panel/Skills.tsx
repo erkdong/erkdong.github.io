@@ -14,7 +14,13 @@ const Skills = () => {
 
   return (
     <div
-      className={clsx("flex flex-col", "w-full h-full", "p-8", "gap-4")}
+      className={clsx(
+        "flex flex-col",
+        "w-full h-full",
+        "p-8",
+        "gap-4",
+        "overflow-scroll"
+      )}
       style={gradientBackground(mainColor)}
     >
       {/* Header and divider */}

@@ -6,14 +6,14 @@ const HyperloopDetails = () => {
   return (
     <div className={clsx("")}>
       {/* Hyperloop */}
-      <CompanyTextElement text="Hyperloop One" className="text-4xl" />
+      <CompanyTextElement text="Hyperloop One" className="text-2xl" />
       <CompanyTextElement
         text="Software Engineer, Full Time 2017 - 2019"
         className="text-md mt-1"
       />
 
       {/* Offboard Software */}
-      <CompanyTextElement text="Offboard Software" className="text-2xl mt-4" />
+      <CompanyTextElement text="Offboard Software" className="text-xl mt-4" />
       <CompanyTextElement
         text="I built and maintained web apps that supported the development of the Hyperloop system."
         className="text-md mt-4"

@@ -11,6 +11,7 @@ import rightArrow from "/img/arrow-right.png";
 import leftArrow from "/img/arrow-left.png";
 import clsx from "clsx";
 import WorkPage from "./pages/work-page/WorkPage";
+import ProjectsPage from "./pages/projects-page/ProjectsPage";
 
 import "./DisplayScreen.css";
 
@@ -32,6 +33,8 @@ const DisplayScreen = () => {
         return <LandingPage />;
       case DisplayScreenPage.WorkPage:
         return <WorkPage />;
+      case DisplayScreenPage.ProjectsPage:
+        return <ProjectsPage />;
       default:
         return null;
     }
