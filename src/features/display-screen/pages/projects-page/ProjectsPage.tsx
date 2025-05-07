@@ -71,7 +71,7 @@ const ProjectsPage = () => {
         {/* Introduction */}
         <ContentWindow className={clsx("px-7 py-6")}>
           <TypewriterText
-            text="These are some cool projects I've worked on!"
+            text="These are some of the projects I've worked on."
             className={clsx("text-xl")}
             speed={TYPEWRITER_SPEED}
           />

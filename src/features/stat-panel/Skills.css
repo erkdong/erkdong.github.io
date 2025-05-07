@@ -1,0 +1,26 @@
+@keyframes left-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* 0.25rem is half of the gap-2 between skill chips */
+    transform: translateX(calc(-50% - 0.25rem));
+  }
+}
+
+.fade-out-edges-horizontal {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 1%,
+    black 15%,
+    black 85%,
+    transparent 99%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 1%,
+    black 15%,
+    black 85%,
+    transparent 99%
+  );
+}

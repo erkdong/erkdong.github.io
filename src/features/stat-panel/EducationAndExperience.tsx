@@ -43,7 +43,7 @@ const EducationAndExperience = () => {
           style={{ width: "10vh", filter: "invert(80%)" }}
         />
 
-        <p className="my-2 text-xl">University of Southern California</p>
+        <p className="my-2 text-lg">University of Southern California</p>
         <p className="text-md" style={{ color: theme.palette.secondary.main }}>
           B.S. Computer Science
         </p>
@@ -54,12 +54,20 @@ const EducationAndExperience = () => {
 
       {/* Industry Experience */}
       <div
-        className={clsx("w-full", "relative", "my-2 py-3 px-4")}
+        className={clsx(
+          "w-full",
+          "relative",
+          "flex flex-col items-center",
+          "py-3 px-4"
+        )}
         style={gradientBackground(mainColor)}
       >
         <p className="text-xl mb-6">Industry Experience</p>
 
-        <div className={clsx("flex flex-col", "w-full", "gap-3", "px-8")}>
+        <div
+          className={clsx("flex flex-col", "w-full", "gap-3")}
+          style={{ paddingLeft: "10%" }}
+        >
           {companyLogos.map(({ src, label, subheader }) => (
             <div key={src} className={clsx("flex items-center", "gap-4")}>
               <div
