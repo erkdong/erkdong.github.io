@@ -4,10 +4,7 @@ const projectCards = [
     img: "../img/futurbeats.svg",
     description: "Landing page for the FuturBeats VST plugin.",
     onClick: () => {
-      window.open(
-        "https://d2vgxf9eqbi5p.cloudfront.net/futurbeats/index.html",
-        "_blank"
-      );
+      window.open("https://futurbeats.com/", "_blank");
     },
   },
   {
