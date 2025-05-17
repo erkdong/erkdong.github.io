@@ -1,58 +1,72 @@
 import Project from "@/const/project";
 import clsx from "clsx";
 import { useTheme } from "@mui/material/styles";
-import { withAlpha } from "@/const";
-import { motion } from "framer-motion"; // ✅ Import motion
+import { rgbWithAlpha } from "@/const";
+import { motion } from "framer-motion";
+import { Box } from "@mui/material";
 
 interface ProjectCardProps {
   project: Project;
+  entryDelay?: number;
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
   const theme = useTheme();
 
   return (
-    // Outer border
     <motion.div
-      whileHover={{ opacity: 1 }}
-      initial={{ opacity: 0.4 }}
-      transition={{ duration: 0.05 }}
-      className={clsx("flex items-center justify-center", "border-2", "p-2")}
-      style={{
-        width: "16vw",
-        maxWidth: "270px",
-        height: "16vw",
-        maxHeight: "270px",
-        borderColor: theme.palette.primary.main,
-      }}
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.4, delay: entryDelay, ease: "circOut" }}
     >
-      {/* Inner border */}
-      <div
-        className={clsx(
-          "relative",
-          "flex items-center justify-center",
-          "w-full h-full",
-          "border-4",
-          "p-8",
-          "cursor-pointer"
-        )}
+      {/* Outer border */}
+      <motion.div
+        whileHover={{ opacity: 1 }}
+        initial={{ opacity: 0.4 }}
+        transition={{ duration: 0.05 }}
+        className={clsx("flex items-center justify-center", "border-2", "p-2")}
         style={{
+          width: "16vw",
+          maxWidth: "250px",
+          height: "16vw",
+          maxHeight: "250px",
           borderColor: theme.palette.primary.main,
-          background: `radial-gradient(circle, ${withAlpha(
-            theme.palette.primary.light,
-            0.1
-          )} 50%, ${theme.palette.primary.main} 100%)`,
         }}
-        onClick={project.onClick}
       >
-        {/* Project image */}
-        <img src={project.img} alt={project.title} className={clsx("h-full")} />
+        {/* Inner border */}
+        <Box
+          className={clsx(
+            "relative",
+            "flex items-center justify-center",
+            "w-full h-full",
+            "border-4",
+            "p-8",
+            "cursor-pointer"
+          )}
+          sx={{
+            borderColor: theme.palette.primary.main,
+            "&:hover": {
+              background: `radial-gradient(circle, ${rgbWithAlpha(
+                theme.palette.primary.light,
+                0.1
+              )} 50%, ${theme.palette.primary.main} 100%)`,
+            },
+          }}
+          onClick={project.onClick}
+        >
+          {/* Project image */}
+          <img
+            src={project.img}
+            alt={project.title}
+            className={clsx("h-full")}
+          />
 
-        {/* Project title */}
-        <p className={clsx("absolute bottom-2 left-2", "text-lg")}>
-          {project.title}
-        </p>
-      </div>
+          {/* Project title */}
+          <p className={clsx("absolute bottom-1 left-2", "text-lg")}>
+            {project.title}
+          </p>
+        </Box>
+      </motion.div>
     </motion.div>
   );
 };

@@ -1,4 +1,4 @@
-import { gradientBackground } from "@/const";
+import { rgbGradientBackground } from "@/const";
 import { useTheme } from "@mui/material/styles";
 import clsx from "clsx";
 import "./Skills.css";
@@ -34,7 +34,7 @@ const Skills = () => {
   return (
     <div
       className={clsx("flex flex-col", "w-full h-full", "py-8", "gap-4")}
-      style={gradientBackground(mainColor)}
+      style={rgbGradientBackground(mainColor)}
     >
       {divider}
 

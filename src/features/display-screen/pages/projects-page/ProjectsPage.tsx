@@ -19,10 +19,7 @@ const ProjectsPage = () => {
       img: futurbeats,
       description: "Landing page for the FuturBeats VST plugin.",
       onClick: () => {
-        window.open(
-          "https://d2vgxf9eqbi5p.cloudfront.net/futurbeats/index.html",
-          "_blank"
-        );
+        window.open("https://futurbeats.com/", "_blank");
       },
     },
     {
@@ -62,7 +59,7 @@ const ProjectsPage = () => {
     <div className={clsx("w-full h-full", "flex items-center justify-center")}>
       <div
         className={clsx(
-          "w-3/4 h-5/6",
+          "w-3/4 h-[80%]",
           "flex flex-col",
           "items-center",
           "gap-12"
@@ -79,15 +76,20 @@ const ProjectsPage = () => {
 
         <Grid
           container
-          spacing={10}
+          spacing={5}
           sx={{
             width: "65vw",
             height: "80%",
             justifyContent: "center",
+            alignContent: "center",
           }}
         >
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              entryDelay={index * 0.1 + 0.4}
+            />
           ))}
         </Grid>
       </div>

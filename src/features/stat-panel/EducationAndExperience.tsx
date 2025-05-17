@@ -5,7 +5,7 @@ import googleLogo from "/img/google.svg";
 import hyperloopLogo from "/img/hyperloop.svg";
 import yahooLogo from "/img/yahoo.svg";
 import uscLogo from "/img/usc.svg";
-import { gradientBackground } from "@/const";
+import { rgbGradientBackground } from "@/const";
 
 const companyLogos = [
   { src: googleLogo, label: "Google", subheader: "6 years" },
@@ -34,7 +34,7 @@ const EducationAndExperience = () => {
           "items-center",
           "my-2 py-3 px-4"
         )}
-        style={gradientBackground(mainColor)}
+        style={rgbGradientBackground(mainColor)}
       >
         <img
           src={uscLogo}
@@ -60,7 +60,7 @@ const EducationAndExperience = () => {
           "flex flex-col items-center",
           "py-3 px-4"
         )}
-        style={gradientBackground(mainColor)}
+        style={rgbGradientBackground(mainColor)}
       >
         <p className="text-xl mb-6">Industry Experience</p>
 

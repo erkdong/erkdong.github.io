@@ -1,5 +1,6 @@
 import { useInView } from "motion/react";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import raf from "raf";
 
 interface TypewriterProps {
   text: string;
@@ -14,11 +15,11 @@ const TypewriterText: React.FC<TypewriterProps> = ({
   speed = 20,
   className = "",
 }) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLParagraphElement>(null);
   const frameRef = useRef<number>();
   const startTimeRef = useRef<number>();
+  const displayedTextRef = useRef("");
   const isInView = useInView(ref, { once: true });
-  const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
     if (!isInView) return;
@@ -28,10 +29,10 @@ const TypewriterText: React.FC<TypewriterProps> = ({
         startTimeRef.current = timestamp;
       }
 
-      // Wait for the start delay to pass before starting to type.
+      // Wait for the start delay to pass before starting to type
       const elapsed = timestamp - startTimeRef.current;
       if (elapsed < startDelay) {
-        frameRef.current = requestAnimationFrame(animate);
+        frameRef.current = raf(animate);
         return;
       }
 
@@ -39,33 +40,28 @@ const TypewriterText: React.FC<TypewriterProps> = ({
       const charsToShow = Math.floor(adjustedElapsed / speed);
       const newText = text.substring(0, charsToShow);
 
-      if (newText !== displayedText) {
-        setDisplayedText(newText);
+      if (newText !== displayedTextRef.current) {
+        displayedTextRef.current = newText;
+        if (ref.current) {
+          ref.current.innerHTML = newText;
+        }
       }
 
       if (charsToShow < text.length) {
-        frameRef.current = requestAnimationFrame(animate);
+        frameRef.current = raf(animate);
       }
     };
 
-    frameRef.current = requestAnimationFrame(animate);
+    frameRef.current = raf(animate);
 
     return () => {
       if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current);
+        raf.cancel(frameRef.current);
       }
     };
   }, [text, speed, isInView, startDelay]);
 
-  return (
-    <p
-      ref={ref}
-      className={className}
-      // We want to respect any tags in the text such as <i>. It's okay to
-      // dangerously set because the text is coming from us, not anyone else.
-      dangerouslySetInnerHTML={{ __html: displayedText }}
-    ></p>
-  );
+  return <p ref={ref} className={className}></p>;
 };
 
 export default TypewriterText;

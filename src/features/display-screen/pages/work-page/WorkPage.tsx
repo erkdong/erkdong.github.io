@@ -6,7 +6,7 @@ import hyperloopLogo from "/img/hyperloop.svg";
 import yahooLogo from "/img/yahoo.svg";
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import { TYPEWRITER_SPEED, withAlpha } from "@/const";
+import { TYPEWRITER_SPEED, rgbWithAlpha } from "@/const";
 
 import "./WorkPage.css";
 import GoogleDetails from "./GoogleDetails";
@@ -56,7 +56,7 @@ const WorkPage = () => {
         "pb-10"
       )}
     >
-      <div className={clsx("w-3/4 h-5/6", "flex flex-col", "items-center")}>
+      <div className={clsx("w-3/4 h-[80%]", "flex flex-col", "items-center")}>
         {/* Introduction */}
         <ContentWindow className={clsx("px-7 py-6")}>
           <TypewriterText
@@ -83,7 +83,7 @@ const WorkPage = () => {
               )}
               style={{
                 border: `2px solid ${theme.palette.primary.light}`,
-                backgroundColor: withAlpha(theme.palette.primary.dark, 0.5),
+                backgroundColor: rgbWithAlpha(theme.palette.primary.dark, 0.5),
               }}
               onClick={() => handleCompanyClick(company.type)}
             >
@@ -97,8 +97,8 @@ const WorkPage = () => {
                 // the parent
                 style={{ transform: "skewX(30deg)" }}
               >
-                <img width={60} src={company.logo} alt={company.label} />
-                <p className={clsx("text-2xl")}>{company.label}</p>
+                <img width={50} src={company.logo} alt={company.label} />
+                <p className={clsx("text-xl")}>{company.label}</p>
               </div>
             </div>
           ))}

@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import * as motion from "motion/react-client";
 import { useTheme } from "@mui/material/styles";
-import { withAlpha } from "../const";
+import { rgbWithAlpha } from "../const";
 
 interface ContentWindowProps {
   children: React.ReactNode;
@@ -27,7 +27,7 @@ const ContentWindow = ({ children, className, style }: ContentWindowProps) => {
       style={{
         border: `2px solid ${theme.palette.primary.light}`,
         borderRadius: "16px",
-        backgroundColor: withAlpha(theme.palette.primary.dark, 0.5),
+        backgroundColor: rgbWithAlpha(theme.palette.primary.dark, 0.5),
         ...style,
       }}
     >
