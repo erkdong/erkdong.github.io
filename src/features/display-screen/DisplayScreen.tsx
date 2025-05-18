@@ -7,8 +7,8 @@ import {
 import LandingPage from "./pages/LandingPage";
 import { useTheme } from "@mui/material/styles";
 
-import rightArrow from "/img/arrow-right.png";
-import leftArrow from "/img/arrow-left.png";
+import rightArrow from "@/assets/arrow-right.png";
+import leftArrow from "@/assets/arrow-left.png";
 import clsx from "clsx";
 import WorkPage from "./pages/work-page/WorkPage";
 import ProjectsPage from "./pages/projects-page/ProjectsPage";

@@ -1,9 +1,9 @@
 import ContentWindow from "@/components/ContentWindow";
 import TypewriterText from "@/components/TypewriterText";
 import clsx from "clsx";
-import googleLogo from "/img/google.svg";
-import hyperloopLogo from "/img/hyperloop.svg";
-import yahooLogo from "/img/yahoo.svg";
+import googleLogo from "@/assets/google.svg";
+import hyperloopLogo from "@/assets/hyperloop.svg";
+import yahooLogo from "@/assets/yahoo.svg";
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { TYPEWRITER_SPEED, rgbWithAlpha } from "@/const";
@@ -67,7 +67,7 @@ const WorkPage = () => {
         </ContentWindow>
 
         {/* Company cards */}
-        <div className={clsx("flex", "gap-10", "my-8")}>
+        <div className={clsx("flex", "gap-10", "my-5")}>
           {companies.map((company) => (
             <div
               key={company.type}
@@ -75,7 +75,7 @@ const WorkPage = () => {
                 "company-card",
                 "flex",
                 "items-center",
-                "px-10 py-3",
+                "px-10 py-2",
                 "cursor-pointer",
                 "transition-transform",
                 "duration-100",

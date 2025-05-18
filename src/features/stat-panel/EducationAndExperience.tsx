@@ -1,16 +1,16 @@
 import clsx from "clsx";
 import { useTheme } from "@mui/material/styles";
 
-import googleLogo from "/img/google.svg";
-import hyperloopLogo from "/img/hyperloop.svg";
-import yahooLogo from "/img/yahoo.svg";
-import uscLogo from "/img/usc.svg";
+import googleLogo from "@/assets/google.svg";
+import hyperloopLogo from "@/assets/hyperloop.svg";
+import yahooLogo from "@/assets/yahoo.svg";
+import uscLogo from "@/assets/usc.svg";
 import { rgbGradientBackground } from "@/const";
 
 const companyLogos = [
-  { src: googleLogo, label: "Google", subheader: "6 years" },
-  { src: hyperloopLogo, label: "Hyperloop One", subheader: "3 years" },
-  { src: yahooLogo, label: "Yahoo", subheader: "1 year" },
+  { src: googleLogo, label: "6 years" },
+  { src: hyperloopLogo, label: "3 years" },
+  { src: yahooLogo, label: "1 year" },
 ];
 
 const EducationAndExperience = () => {
@@ -21,35 +21,39 @@ const EducationAndExperience = () => {
   return (
     <div
       className={clsx(
-        "py-3",
-        "flex flex-col justify-between",
-        "items-center text-center"
+        "h-full",
+        "flex flex-col justify-center",
+        "items-center text-center",
+        "gap-2"
       )}
     >
       {/* Education */}
       <div
-        className={clsx(
-          "w-full",
-          "flex flex-col",
-          "items-center",
-          "my-2 py-3 px-4"
-        )}
+        className={clsx("w-full", "flex items-center gap-4", "my-2 py-3 px-4")}
         style={rgbGradientBackground(mainColor)}
       >
         <img
           src={uscLogo}
           alt="USC Logo"
-          className={clsx("max-w-32")}
-          style={{ width: "10vh", filter: "invert(80%)" }}
+          className={clsx("max-w-24")}
+          style={{ width: "15vw", filter: "invert(80%)" }}
         />
 
-        <p className="my-2 text-lg">University of Southern California</p>
-        <p className="text-md" style={{ color: theme.palette.secondary.main }}>
-          B.S. Computer Science
-        </p>
-        <p className="text-md" style={{ color: theme.palette.secondary.main }}>
-          M.S. Computer Science
-        </p>
+        <div className={clsx("flex flex-col", "text-left")}>
+          <p className="my-2 text-lg">University of Southern California</p>
+          <p
+            className="text-sm"
+            style={{ color: theme.palette.secondary.main }}
+          >
+            B.S. Computer Science
+          </p>
+          <p
+            className="text-sm"
+            style={{ color: theme.palette.secondary.main }}
+          >
+            M.S. Computer Science
+          </p>
+        </div>
       </div>
 
       {/* Industry Experience */}
@@ -57,19 +61,19 @@ const EducationAndExperience = () => {
         className={clsx(
           "w-full",
           "relative",
-          "flex flex-col items-center",
+          "flex flex-col items-center justify-center",
           "py-3 px-4"
         )}
         style={rgbGradientBackground(mainColor)}
       >
-        <p className="text-xl mb-6">Industry Experience</p>
+        <p className="text-lg mb-6">Industry Experience</p>
 
-        <div
-          className={clsx("flex flex-col", "w-full", "gap-3")}
-          style={{ paddingLeft: "10%" }}
-        >
-          {companyLogos.map(({ src, label, subheader }) => (
-            <div key={src} className={clsx("flex items-center", "gap-4")}>
+        <div className={clsx("flex justify-center", "w-full", "gap-5")}>
+          {companyLogos.map(({ src, label }) => (
+            <div
+              key={src}
+              className={clsx("flex flex-col items-center", "gap-4")}
+            >
               <div
                 className={clsx(
                   "flex justify-center items-center",
@@ -89,13 +93,7 @@ const EducationAndExperience = () => {
                 />
               </div>
               <div className={clsx("flex flex-col", "text-left")}>
-                <p className="text-lg">{label}</p>
-                <p
-                  className="text-md"
-                  style={{ color: theme.palette.secondary.main }}
-                >
-                  <i>{subheader}</i>
-                </p>
+                <p className="text-md">{label}</p>
               </div>
             </div>
           ))}

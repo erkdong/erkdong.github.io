@@ -1,18 +1,25 @@
 import clsx from "clsx";
 
-import futurbeats from "/img/futurbeats.svg";
-import fiverr from "/img/fiverr.svg";
-import dewey from "/img/dewey.png";
-import twitch from "/img/twitch.svg";
-import minesweeper from "/img/minesweeper.svg";
+import futurbeats from "@/assets/futurbeats.svg";
+import fiverr from "@/assets/fiverr.svg";
+import dewey from "@/assets/dewey.png";
+import twitch from "@/assets/twitch.svg";
+import minesweeper from "@/assets/minesweeper.svg";
 import Project from "@/const/project";
 import ProjectCard from "./ProjectCard";
 import Grid from "@mui/material/Grid2";
 import ContentWindow from "@/components/ContentWindow";
 import TypewriterText from "@/components/TypewriterText";
 import { TYPEWRITER_SPEED } from "@/const";
+import { useState } from "react";
+import DeweyDialog from "./dialogs/DeweyDialog";
+import { Dialogs } from "./dialogs";
+import StoreAlertsDialog from "./dialogs/StoreAlertsDialog";
+import MinesweeperDialog from "./dialogs/MinesweeperDialog";
 
 const ProjectsPage = () => {
+  const [selectedDialog, setSelectedDialog] = useState<Dialogs | null>(null);
+
   const projects: Project[] = [
     {
       title: "FuturBeats",
@@ -37,26 +44,32 @@ const ProjectsPage = () => {
       title: "Dewey",
       img: dewey,
       description: "Manage the chaos of the too-much-information age.",
-      onClick: () => {},
+      onClick: () => setSelectedDialog(Dialogs.DEWEY),
     },
     {
       title: "Twitch store alerts",
       img: twitch,
       description:
         "Real time livestream alerts when a purchase is made from the streamer's online store.",
-      onClick: () => {},
+      onClick: () => setSelectedDialog(Dialogs.STORE_ALERTS),
     },
     {
       title: "FPS Minesweeper",
       img: minesweeper,
       description:
         "From my school days, but I'm quite proud of this one. Minesweeper reimagined as an FPS shooter!",
-      onClick: () => {},
+      onClick: () => setSelectedDialog(Dialogs.MINESWEEPER),
     },
   ];
 
   return (
-    <div className={clsx("w-full h-full", "flex items-center justify-center")}>
+    <div
+      className={clsx(
+        "relative",
+        "w-full h-full",
+        "flex items-center justify-center"
+      )}
+    >
       <div
         className={clsx(
           "w-3/4 h-[80%]",
@@ -93,6 +106,19 @@ const ProjectsPage = () => {
           ))}
         </Grid>
       </div>
+
+      <DeweyDialog
+        open={selectedDialog === Dialogs.DEWEY}
+        onClose={() => setSelectedDialog(null)}
+      />
+      <StoreAlertsDialog
+        open={selectedDialog === Dialogs.STORE_ALERTS}
+        onClose={() => setSelectedDialog(null)}
+      />
+      <MinesweeperDialog
+        open={selectedDialog === Dialogs.MINESWEEPER}
+        onClose={() => setSelectedDialog(null)}
+      />
     </div>
   );
 };

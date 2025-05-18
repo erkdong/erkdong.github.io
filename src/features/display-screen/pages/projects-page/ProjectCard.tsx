@@ -24,7 +24,12 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
         whileHover={{ opacity: 1 }}
         initial={{ opacity: 0.4 }}
         transition={{ duration: 0.05 }}
-        className={clsx("flex items-center justify-center", "border-2", "p-2")}
+        className={clsx(
+          "flex items-center justify-center",
+          "border-2",
+          "p-2",
+          "cursor-pointer"
+        )}
         style={{
           width: "16vw",
           maxWidth: "250px",
@@ -32,6 +37,7 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
           maxHeight: "250px",
           borderColor: theme.palette.primary.main,
         }}
+        onClick={project.onClick}
       >
         {/* Inner border */}
         <Box
@@ -40,19 +46,15 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
             "flex items-center justify-center",
             "w-full h-full",
             "border-4",
-            "p-8",
-            "cursor-pointer"
+            "p-8"
           )}
           sx={{
             borderColor: theme.palette.primary.main,
-            "&:hover": {
-              background: `radial-gradient(circle, ${rgbWithAlpha(
-                theme.palette.primary.light,
-                0.1
-              )} 50%, ${theme.palette.primary.main} 100%)`,
-            },
+            background: `radial-gradient(circle, ${rgbWithAlpha(
+              theme.palette.primary.light,
+              0.1
+            )} 50%, ${theme.palette.primary.main} 100%)`,
           }}
-          onClick={project.onClick}
         >
           {/* Project image */}
           <img

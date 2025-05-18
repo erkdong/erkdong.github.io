@@ -8,9 +8,9 @@ export const palette = {
     dark: "rgb(50, 50, 90)",
   },
   secondary: {
-    light: grey[300],
-    main: grey[600],
-    dark: grey[900],
+    light: grey[200],
+    main: grey[400],
+    dark: grey[600],
   },
   error: {
     main: red[700],

@@ -9,14 +9,15 @@ interface Square {
 }
 
 const GAP = 10;
-const SQUARE_SIZE = 150;
 const FADE_FACTOR = 0.004;
 const UPDATE_INTERVAL = 1000 / 30; // 30 FPS
-const MIN_SCALE = 0.92; // Minimum scale for the squares
+const MIN_SCALE = 0.9; // Minimum scale for the squares
 const MIN_OPACITY = 0.03; // Minimum opacity for the squares
 
 // Larger => Squares must be closer to the mouse before scaling
 const SCALE_FACTOR = 0.01;
+
+const SQUARE_SIZE_PERCENT = 10; // 5% of viewport width
 
 const Background: React.FC = () => {
   const theme = useTheme();
@@ -30,8 +31,8 @@ const Background: React.FC = () => {
   const createSquare = (row: number, col: number) => {
     const element = document.createElement("div");
     element.style.cssText = `
-      width: ${SQUARE_SIZE}px;
-      height: ${SQUARE_SIZE}px;
+      width: ${SQUARE_SIZE_PERCENT}vw;
+      height: ${SQUARE_SIZE_PERCENT}vw;
       background: none;
       border: 2px solid ${theme.palette.primary.dark};
       border-radius: 10px;
@@ -49,8 +50,9 @@ const Background: React.FC = () => {
 
     const containerWidth = container.clientWidth;
     const containerHeight = container.clientHeight;
-    const numRows = Math.ceil(containerHeight / SQUARE_SIZE) + 1;
-    const numCols = Math.ceil(containerWidth / SQUARE_SIZE) + 1;
+    const squareSizePx = (containerWidth * SQUARE_SIZE_PERCENT) / 100;
+    const numRows = Math.ceil(containerHeight / squareSizePx) + 1;
+    const numCols = Math.ceil(containerWidth / squareSizePx) + 1;
 
     // Create or update grid container
     if (!gridContainerRef.current) {
@@ -60,8 +62,8 @@ const Background: React.FC = () => {
 
     gridContainerRef.current.style.cssText = `
       display: grid;
-      grid-template-columns: repeat(${numCols}, ${SQUARE_SIZE}px);
-      grid-template-rows: repeat(${numRows}, ${SQUARE_SIZE}px);
+      grid-template-columns: repeat(${numCols}, ${SQUARE_SIZE_PERCENT}vw);
+      grid-template-rows: repeat(${numRows}, ${SQUARE_SIZE_PERCENT}vw);
       width: 100%;
       height: 100%;
       gap: ${GAP}px;

@@ -2,14 +2,14 @@ import EducationAndExperience from "@/features/stat-panel/EducationAndExperience
 import OctagonContainer from "@/components/OctagonContainer";
 import clsx from "clsx";
 
-import profileImg from "/img/profile.jpg";
+import profileImg from "@/assets/profile.jpg";
 import Skills from "@/features/stat-panel/Skills";
 import { BORDER_THICKNESS, CUT_SIZE } from "@/const";
 
 const StatPanel = () => {
   return (
     <div
-      className={clsx("flex flex-col", "items-center", "w-1/5 max-w-80")}
+      className={clsx("flex flex-col", "items-center", "w-2/5 max-w-80")}
       style={{
         gap: BORDER_THICKNESS,
       }}
