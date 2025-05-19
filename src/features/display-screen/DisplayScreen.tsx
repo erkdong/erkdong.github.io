@@ -86,7 +86,7 @@ const DisplayScreen = () => {
               src={src}
               alt={alt}
               className={clsx(
-                "opacity-40",
+                "opacity-20",
                 "hover:opacity-100",
                 "duration-100"
               )}
