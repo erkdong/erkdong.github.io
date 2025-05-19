@@ -1,6 +1,5 @@
 import { DialogProps } from ".";
 import { Dialog, IconButton, useTheme, Slide } from "@mui/material";
-import minesweeperUrl from "@/assets/minesweeper/index.html";
 import CloseIcon from "@mui/icons-material/Close";
 import { TransitionProps } from "@mui/material/transitions";
 import { forwardRef } from "react";
@@ -42,7 +41,7 @@ const MinesweeperDialog = ({ open, onClose }: DialogProps) => {
           reimagined as an FPS shooter!
         </p>
 
-        <iframe width={960} height={600} src={minesweeperUrl} />
+        <iframe width={960} height={600} src="/minesweeper/index.html" />
       </div>
 
       <IconButton
