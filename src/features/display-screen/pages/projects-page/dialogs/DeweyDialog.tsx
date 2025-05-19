@@ -39,6 +39,11 @@ const DeweyDialog = ({ open, onClose }: DialogProps) => {
           exactly what you're looking for.
         </p>
 
+        <p className={clsx("w-3/5", "text-md mt-8", "text-right self-end")}>
+          ...at least it used to, until certain popular LLM apps added memory to
+          their chat models and rendered Dewey obsolete :')
+        </p>
+
         <div className={clsx("self-end", "flex gap-4")}>
           <Button
             variant="contained"
@@ -55,7 +60,7 @@ const DeweyDialog = ({ open, onClose }: DialogProps) => {
               mt: 4,
             }}
           >
-            Try it now
+            Try it out
           </Button>
 
           <Button

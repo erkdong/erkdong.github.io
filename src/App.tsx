@@ -8,11 +8,41 @@ import OctagonContainer from "./components/OctagonContainer";
 import DisplayScreen from "./features/display-screen/DisplayScreen";
 import StatPanel from "./features/stat-panel/StatPanel";
 import { BORDER_THICKNESS, CUT_SIZE } from "./const";
+import { Box, useMediaQuery } from "@mui/material";
+
+import chromeDino from "./assets/chrome-dino.png";
 
 function App() {
   const theme = useTheme();
 
-  return (
+  const isSmallScreen = useMediaQuery("(max-width: 800px)");
+
+  return isSmallScreen ? (
+    <Box
+      className={clsx(
+        "w-screen h-screen",
+        "flex flex-col",
+        "pt-36 px-12",
+        "gap-4"
+      )}
+      sx={{
+        backgroundColor: "primary.dark",
+        color: "secondary.light",
+      }}
+    >
+      <img
+        src={chromeDino}
+        className="w-1/2"
+        style={{
+          filter: "invert(1)",
+        }}
+      />
+      <p className="text-5xl">:(</p>
+      <p className="text-2xl">
+        My website is best viewed on a larger screen. Please open it on desktop!
+      </p>
+    </Box>
+  ) : (
     <div className="min-h-screen bg-transparent">
       <div
         className={clsx("w-screen h-screen", "absolute top-0 left-0", "flex")}

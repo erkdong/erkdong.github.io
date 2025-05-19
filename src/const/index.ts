@@ -39,20 +39,11 @@ function alphaToHex(alpha: number): string {
   return clamped.toString(16).padStart(2, "0").toUpperCase();
 }
 
-// Linear gradient from top (transparent) to middle (50% opacity) to bottom
-// (transparent)
-export const hexGradientBackground = (color: string) => ({
-  background: `linear-gradient(to bottom, ${hexWithAlpha(
-    color,
-    0
-  )} 10%, ${hexWithAlpha(color, 0.45)}, ${hexWithAlpha(color, 0)} 90%)`,
-});
-
 export const rgbGradientBackground = (color: string) => ({
   background: `linear-gradient(to bottom, ${rgbWithAlpha(
     color,
     0
-  )} 10%, ${rgbWithAlpha(color, 0.45)}, ${rgbWithAlpha(color, 0)} 90%)`,
+  )} 5%, ${rgbWithAlpha(color, 0.45)}, ${rgbWithAlpha(color, 0)} 95%)`,
 });
 
 export const BORDER_THICKNESS = "24px";

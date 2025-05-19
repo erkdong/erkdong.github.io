@@ -4,7 +4,6 @@ import minesweeperUrl from "@/assets/minesweeper/index.html";
 import CloseIcon from "@mui/icons-material/Close";
 import { TransitionProps } from "@mui/material/transitions";
 import { forwardRef } from "react";
-import { grey } from "@mui/material/colors";
 import clsx from "clsx";
 
 const Transition = forwardRef(function Transition(

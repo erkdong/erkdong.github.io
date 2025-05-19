@@ -16,7 +16,7 @@ const StatPanel = () => {
     >
       {/* Profile picture */}
       <OctagonContainer
-        className={clsx("bg-zinc-950", "w-full max-w-52")}
+        className={clsx("bg-zinc-950", "w-4/5 max-w-64")}
         style={{ aspectRatio: "1/1" }}
         cut={CUT_SIZE}
       >

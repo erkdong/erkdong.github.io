@@ -5,6 +5,7 @@ import "./Skills.css";
 
 const skills = [
   "react",
+  "angular",
   "typescript",
   "html/css/js",
   "python",
@@ -48,7 +49,7 @@ const Skills = () => {
         <div
           className={clsx("flex", "gap-2", "min-w-max")}
           style={{
-            animation: "left-scroll 15s linear infinite",
+            animation: "left-scroll 12s linear infinite",
           }}
         >
           {[...skills, ...skills].map((skill, index) => (
@@ -57,7 +58,7 @@ const Skills = () => {
               className={clsx("border-2", "py-1 px-2", "rounded-full")}
               style={{ borderColor: theme.palette.primary.light }}
             >
-              <p className="text-sm">{skill}</p>
+              <p className="text-md">{skill}</p>
             </div>
           ))}
         </div>

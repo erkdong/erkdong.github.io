@@ -4,6 +4,7 @@ import { useTheme } from "@mui/material/styles";
 import { rgbWithAlpha } from "@/const";
 import { motion } from "framer-motion";
 import { Box } from "@mui/material";
+import { useState } from "react";
 
 interface ProjectCardProps {
   project: Project;
@@ -12,6 +13,7 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
   const theme = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
@@ -38,6 +40,8 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
           borderColor: theme.palette.primary.main,
         }}
         onClick={project.onClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         {/* Inner border */}
         <Box
@@ -53,7 +57,9 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
             background: `radial-gradient(circle, ${rgbWithAlpha(
               theme.palette.primary.light,
               0.1
-            )} 50%, ${theme.palette.primary.main} 100%)`,
+            )} ${isHovered ? "0%" : "50%"}, ${
+              theme.palette.primary.main
+            } 100%)`,
           }}
         >
           {/* Project image */}

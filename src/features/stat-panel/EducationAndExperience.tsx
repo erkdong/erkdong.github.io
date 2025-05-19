@@ -23,8 +23,7 @@ const EducationAndExperience = () => {
       className={clsx(
         "h-full",
         "flex flex-col justify-center",
-        "items-center text-center",
-        "gap-2"
+        "items-center text-center"
       )}
     >
       {/* Education */}
@@ -66,13 +65,13 @@ const EducationAndExperience = () => {
         )}
         style={rgbGradientBackground(mainColor)}
       >
-        <p className="text-lg mb-6">Industry Experience</p>
+        <p className="text-lg mb-4">Industry Experience</p>
 
-        <div className={clsx("flex justify-center", "w-full", "gap-5")}>
+        <div className={clsx("flex justify-center", "w-full", "gap-5", "mb-2")}>
           {companyLogos.map(({ src, label }) => (
             <div
               key={src}
-              className={clsx("flex flex-col items-center", "gap-4")}
+              className={clsx("flex flex-col items-center", "gap-2")}
             >
               <div
                 className={clsx(

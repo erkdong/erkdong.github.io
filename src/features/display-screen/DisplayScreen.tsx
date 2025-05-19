@@ -9,6 +9,10 @@ import { useTheme } from "@mui/material/styles";
 
 import rightArrow from "@/assets/arrow-right.png";
 import leftArrow from "@/assets/arrow-left.png";
+import linkedInLogo from "@/assets/linkedin.svg";
+import fiverrLogo from "@/assets/fiverr.svg";
+import upworkLogo from "@/assets/upwork.svg";
+
 import clsx from "clsx";
 import WorkPage from "./pages/work-page/WorkPage";
 import ProjectsPage from "./pages/projects-page/ProjectsPage";
@@ -51,9 +55,45 @@ const DisplayScreen = () => {
     cursor: canNavigate ? "pointer" : "default",
   });
 
+  const socialMediaLinks = [
+    {
+      href: "https://www.linkedin.com/in/dongeric/",
+      src: linkedInLogo,
+      alt: "LinkedIn",
+    },
+    {
+      href: "https://www.upwork.com/freelancers/~013d5ff9b03d1df55f",
+      src: upworkLogo,
+      alt: "Upwork",
+    },
+    {
+      href: "https://www.fiverr.com/erkdong",
+      src: fiverrLogo,
+      alt: "Fiverr",
+    },
+  ];
+
   return (
     <div className="w-full h-full">
       {renderPage()}
+
+      {/* Social media links */}
+      <div className={clsx("absolute top-2 right-10", "flex gap-3")}>
+        {socialMediaLinks.map(({ href, src, alt }) => (
+          <a href={href} target="_blank">
+            <img
+              width={30}
+              src={src}
+              alt={alt}
+              className={clsx(
+                "opacity-40",
+                "hover:opacity-100",
+                "duration-100"
+              )}
+            />
+          </a>
+        ))}
+      </div>
 
       {/* Page navigation buttons */}
       <button

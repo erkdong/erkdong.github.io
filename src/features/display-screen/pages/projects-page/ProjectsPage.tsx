@@ -16,6 +16,7 @@ import DeweyDialog from "./dialogs/DeweyDialog";
 import { Dialogs } from "./dialogs";
 import StoreAlertsDialog from "./dialogs/StoreAlertsDialog";
 import MinesweeperDialog from "./dialogs/MinesweeperDialog";
+import FuturBeatsDialog from "./dialogs/FuturBeatsDialog";
 
 const ProjectsPage = () => {
   const [selectedDialog, setSelectedDialog] = useState<Dialogs | null>(null);
@@ -25,9 +26,7 @@ const ProjectsPage = () => {
       title: "FuturBeats",
       img: futurbeats,
       description: "Landing page for the FuturBeats VST plugin.",
-      onClick: () => {
-        window.open("https://futurbeats.com/", "_blank");
-      },
+      onClick: () => setSelectedDialog(Dialogs.FUTURBEATS),
     },
     {
       title: "Rafael",
@@ -81,7 +80,7 @@ const ProjectsPage = () => {
         {/* Introduction */}
         <ContentWindow className={clsx("px-7 py-6")}>
           <TypewriterText
-            text="These are some of the projects I've worked on."
+            text="Cool projects below!"
             className={clsx("text-xl")}
             speed={TYPEWRITER_SPEED}
           />
@@ -107,6 +106,10 @@ const ProjectsPage = () => {
         </Grid>
       </div>
 
+      <FuturBeatsDialog
+        open={selectedDialog === Dialogs.FUTURBEATS}
+        onClose={() => setSelectedDialog(null)}
+      />
       <DeweyDialog
         open={selectedDialog === Dialogs.DEWEY}
         onClose={() => setSelectedDialog(null)}
