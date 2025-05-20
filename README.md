@@ -1,7 +1,5 @@
 # [erkdong.github.io](https://erkdong.github.io/)
 
-Built using pure HTML and JavaScript because I make great life decisions.
-
 # Project technical details
 
 For the curious, some details into how I built each project I've worked on.
