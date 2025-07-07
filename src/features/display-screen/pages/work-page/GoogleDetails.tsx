@@ -57,7 +57,7 @@ const GoogleDetails = () => {
         delay={delays.next()}
       />
       <CompanyTextElement
-        text="Frontend engineer working on advertiser-facing tools that helped users plan and allocate ad spend."
+        text="Full stack engineer working on advertiser-facing tools that helped users plan and allocate ad spend."
         className="text-md mt-4"
         delay={delays.next()}
       />
