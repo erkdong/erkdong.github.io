@@ -11,7 +11,6 @@ import { Description } from "@mui/icons-material";
 import rightArrow from "@/assets/arrow-right.png";
 import leftArrow from "@/assets/arrow-left.png";
 import linkedInLogo from "@/assets/linkedin.svg";
-import fiverrLogo from "@/assets/fiverr.svg";
 
 import clsx from "clsx";
 import WorkPage from "./pages/work-page/WorkPage";
