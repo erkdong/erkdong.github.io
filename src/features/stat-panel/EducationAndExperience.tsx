@@ -20,15 +20,15 @@ const EducationAndExperience = () => {
 
   return (
     <div
-      className={clsx(
-        "h-full",
-        "flex flex-col justify-center",
-        "items-center text-center"
-      )}
+      className={clsx("h-full", "flex flex-col", "items-center text-center")}
     >
       {/* Education */}
       <div
-        className={clsx("w-full", "flex items-center gap-4", "my-2 py-3 px-4")}
+        className={clsx(
+          "w-full",
+          "flex flex-col xl:flex-row items-center gap-4",
+          "my-2 py-3 px-4"
+        )}
         style={rgbGradientBackground(mainColor)}
       >
         <img
@@ -39,15 +39,17 @@ const EducationAndExperience = () => {
         />
 
         <div className={clsx("flex flex-col", "text-left")}>
-          <p className="my-2 text-lg">University of Southern California</p>
+          <p className="my-2 text-lg text-center xl:text-left">
+            University of Southern California
+          </p>
           <p
-            className="text-sm"
+            className="text-sm text-center xl:text-left"
             style={{ color: theme.palette.secondary.main }}
           >
             B.S. Computer Science
           </p>
           <p
-            className="text-sm"
+            className="text-sm text-center xl:text-left"
             style={{ color: theme.palette.secondary.main }}
           >
             M.S. Computer Science
@@ -67,7 +69,14 @@ const EducationAndExperience = () => {
       >
         <p className="text-lg mb-4">Industry Experience</p>
 
-        <div className={clsx("flex justify-center", "w-full", "gap-5", "mb-2")}>
+        <div
+          className={clsx(
+            "flex justify-center",
+            "w-full",
+            "gap-2 xl:gap-5",
+            "mb-2"
+          )}
+        >
           {companyLogos.map(({ src, label }) => (
             <div
               key={src}

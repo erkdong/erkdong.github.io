@@ -33,10 +33,10 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
           "cursor-pointer"
         )}
         style={{
-          width: "16vw",
-          maxWidth: "250px",
-          height: "16vw",
-          maxHeight: "250px",
+          width: "14vw",
+          maxWidth: "220px",
+          height: "14vw",
+          maxHeight: "220px",
           borderColor: theme.palette.primary.main,
         }}
         onClick={project.onClick}
@@ -70,7 +70,9 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
           />
 
           {/* Project title */}
-          <p className={clsx("absolute bottom-1 left-2", "text-lg")}>
+          <p
+            className={clsx("absolute bottom-1 left-2", "text-base xl:text-lg")}
+          >
             {project.title}
           </p>
         </Box>

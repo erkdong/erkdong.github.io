@@ -6,12 +6,12 @@ import {
 } from "./display-screen-page-slice";
 import LandingPage from "./pages/LandingPage";
 import { useTheme } from "@mui/material/styles";
+import { Description } from "@mui/icons-material";
 
 import rightArrow from "@/assets/arrow-right.png";
 import leftArrow from "@/assets/arrow-left.png";
 import linkedInLogo from "@/assets/linkedin.svg";
 import fiverrLogo from "@/assets/fiverr.svg";
-import upworkLogo from "@/assets/upwork.svg";
 
 import clsx from "clsx";
 import WorkPage from "./pages/work-page/WorkPage";
@@ -62,14 +62,9 @@ const DisplayScreen = () => {
       alt: "LinkedIn",
     },
     {
-      href: "https://www.upwork.com/freelancers/~013d5ff9b03d1df55f",
-      src: upworkLogo,
-      alt: "Upwork",
-    },
-    {
-      href: "https://www.fiverr.com/erkdong",
-      src: fiverrLogo,
-      alt: "Fiverr",
+      href: "https://resume.erkdong.com",
+      icon: Description,
+      alt: "Resume",
     },
   ];
 
@@ -79,18 +74,35 @@ const DisplayScreen = () => {
 
       {/* Social media links */}
       <div className={clsx("absolute top-2 right-10", "flex gap-3")}>
-        {socialMediaLinks.map(({ href, src, alt }) => (
+        {socialMediaLinks.map(({ href, src, alt, icon: Icon }) => (
           <a href={href} target="_blank">
-            <img
-              width={30}
-              src={src}
-              alt={alt}
-              className={clsx(
-                "opacity-20",
-                "hover:opacity-100",
-                "duration-100"
-              )}
-            />
+            {Icon ? (
+              <Icon
+                aria-label={alt}
+                sx={{ fontSize: 36 }}
+                className={clsx(
+                  "opacity-30",
+                  "hover:opacity-100",
+                  "duration-100"
+                )}
+                style={{
+                  border: "2px solid white",
+                  padding: 1,
+                  borderRadius: "0.24rem",
+                }}
+              />
+            ) : (
+              <img
+                width={36}
+                src={src}
+                alt={alt}
+                className={clsx(
+                  "opacity-30",
+                  "hover:opacity-100",
+                  "duration-100"
+                )}
+              />
+            )}
           </a>
         ))}
       </div>

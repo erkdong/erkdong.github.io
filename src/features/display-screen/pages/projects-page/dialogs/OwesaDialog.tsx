@@ -1,27 +1,24 @@
+import clsx from "clsx";
 import { DialogProps } from "./index";
 import BaseDialog from "./BaseDialog";
-import clsx from "clsx";
 import { Button, Divider, useTheme } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 
-const FuturBeatsDialog = ({ open, onClose }: DialogProps) => {
+const OwesaDialog = ({ open, onClose }: DialogProps) => {
   const theme = useTheme();
 
   return (
-    <BaseDialog title="FuturBeats" open={open} onClose={onClose}>
+    <BaseDialog title="Owesa" open={open} onClose={onClose}>
       <div className={clsx("flex flex-col")}>
         <p className={clsx("text-lg")}>
-          This client developed a plugin for music production, and needed a web
-          platform featuring:
+          A business networking platform featuring content feeds, interest
+          groups, messaging, and job postings.
         </p>
 
-        <ul className={clsx("list-disc", "text-lg", "pl-8", "mt-2")}>
-          <li>A download page for getting the plugin</li>
-          <li>Account creation, login, and management</li>
-          <li>
-            An e-commerce store for purchasing credits to be used in the plugin
-          </li>
-        </ul>
+        <p className={clsx("text-lg mt-2")}>
+          I inherited an AI-generated frontend codebase that was functional but
+          lacking in UI/UX.
+        </p>
 
         <Divider
           color={theme.palette.secondary.light}
@@ -31,8 +28,9 @@ const FuturBeatsDialog = ({ open, onClose }: DialogProps) => {
         />
 
         <p className={clsx("text-xl")}>
-          I worked closely with the backend and native app engineers (all
-          located in Europe) to design and build the platform.
+          My work was to refine and polish the end-to-end user experience across
+          the entire platform, redesigning and rebuilding components, layouts,
+          and user flows.
         </p>
 
         <Button
@@ -41,7 +39,7 @@ const FuturBeatsDialog = ({ open, onClose }: DialogProps) => {
           endIcon={<LaunchIcon />}
           className={clsx("self-end")}
           onClick={() => {
-            window.open("https://futurbeats.com/", "_blank");
+            window.open("https://owesa.com/", "_blank");
           }}
           sx={{
             "&:hover": {
@@ -58,4 +56,4 @@ const FuturBeatsDialog = ({ open, onClose }: DialogProps) => {
   );
 };
 
-export default FuturBeatsDialog;
+export default OwesaDialog;

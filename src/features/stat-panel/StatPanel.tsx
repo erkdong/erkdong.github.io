@@ -9,7 +9,11 @@ import { BORDER_THICKNESS, CUT_SIZE } from "@/const";
 const StatPanel = () => {
   return (
     <div
-      className={clsx("flex flex-col", "items-center", "w-2/5 max-w-80")}
+      className={clsx(
+        "flex flex-col",
+        "items-center",
+        "w-1/5 min-w-60 max-w-80"
+      )}
       style={{
         gap: BORDER_THICKNESS,
       }}

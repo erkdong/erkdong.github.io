@@ -15,7 +15,7 @@ import chromeDino from "./assets/chrome-dino.png";
 function App() {
   const theme = useTheme();
 
-  const isSmallScreen = useMediaQuery("(max-width: 800px)");
+  const isSmallScreen = useMediaQuery("(max-width: 1000px)");
 
   return isSmallScreen ? (
     <Box
@@ -39,7 +39,8 @@ function App() {
       />
       <p className="text-5xl">:(</p>
       <p className="text-2xl">
-        My website is best viewed on a larger screen. Please open it on desktop!
+        My website is best viewed on a larger screen. Please open it on desktop
+        or tablet!
       </p>
     </Box>
   ) : (

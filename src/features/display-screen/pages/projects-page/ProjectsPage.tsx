@@ -1,7 +1,9 @@
 import clsx from "clsx";
 
 import futurbeats from "@/assets/futurbeats.svg";
-import fiverr from "@/assets/fiverr.svg";
+import hungyhungy from "@/assets/hungyhungy.png";
+import forgetmenot from "@/assets/forgetmenot.png";
+import owesa from "@/assets/owesa.svg";
 import dewey from "@/assets/dewey.png";
 import twitch from "@/assets/twitch.svg";
 import minesweeper from "@/assets/minesweeper.svg";
@@ -17,46 +19,51 @@ import { Dialogs } from "./dialogs";
 import StoreAlertsDialog from "./dialogs/StoreAlertsDialog";
 import MinesweeperDialog from "./dialogs/MinesweeperDialog";
 import FuturBeatsDialog from "./dialogs/FuturBeatsDialog";
+import OwesaDialog from "./dialogs/OwesaDialog";
 
 const ProjectsPage = () => {
   const [selectedDialog, setSelectedDialog] = useState<Dialogs | null>(null);
 
   const projects: Project[] = [
     {
-      title: "FuturBeats",
-      img: futurbeats,
-      description: "Landing page for the FuturBeats VST plugin.",
-      onClick: () => setSelectedDialog(Dialogs.FUTURBEATS),
+      title: "ForgetMeNot",
+      img: forgetmenot,
+      onClick: () =>
+        window.open(
+          "https://forget-me-not.co",
+          "_blank",
+          "noopener,noreferrer"
+        ),
     },
     {
-      title: "Rafael",
-      img: fiverr,
-      description: "Personal website for my client Rafael.",
-      onClick: () => {
-        window.open(
-          "https://d2vgxf9eqbi5p.cloudfront.net/rafael/index.html",
-          "_blank"
-        );
-      },
+      title: "HungyHungy",
+      img: hungyhungy,
+      onClick: () =>
+        window.open("https://hungyhungy.com", "_blank", "noopener,noreferrer"),
+    },
+    {
+      title: "Owesa",
+      img: owesa,
+      onClick: () => setSelectedDialog(Dialogs.OWESA),
+    },
+    {
+      title: "FuturBeats",
+      img: futurbeats,
+      onClick: () => setSelectedDialog(Dialogs.FUTURBEATS),
     },
     {
       title: "Dewey",
       img: dewey,
-      description: "Manage the chaos of the too-much-information age.",
       onClick: () => setSelectedDialog(Dialogs.DEWEY),
     },
     {
       title: "Twitch store alerts",
       img: twitch,
-      description:
-        "Real time livestream alerts when a purchase is made from the streamer's online store.",
       onClick: () => setSelectedDialog(Dialogs.STORE_ALERTS),
     },
     {
       title: "FPS Minesweeper",
       img: minesweeper,
-      description:
-        "From my school days, but I'm quite proud of this one. Minesweeper reimagined as an FPS shooter!",
       onClick: () => setSelectedDialog(Dialogs.MINESWEEPER),
     },
   ];
@@ -74,7 +81,7 @@ const ProjectsPage = () => {
           "w-3/4 h-[80%]",
           "flex flex-col",
           "items-center",
-          "gap-12"
+          "gap-8 xl:gap-12"
         )}
       >
         {/* Introduction */}
@@ -88,9 +95,9 @@ const ProjectsPage = () => {
 
         <Grid
           container
-          spacing={5}
+          spacing={{ xs: 3, lg: 5 }}
           sx={{
-            width: "65vw",
+            width: "70vw",
             height: "80%",
             justifyContent: "center",
             alignContent: "center",
@@ -120,6 +127,10 @@ const ProjectsPage = () => {
       />
       <MinesweeperDialog
         open={selectedDialog === Dialogs.MINESWEEPER}
+        onClose={() => setSelectedDialog(null)}
+      />
+      <OwesaDialog
+        open={selectedDialog === Dialogs.OWESA}
         onClose={() => setSelectedDialog(null)}
       />
     </div>
