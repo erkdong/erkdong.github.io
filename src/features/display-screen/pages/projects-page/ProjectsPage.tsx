@@ -14,6 +14,7 @@ import ContentWindow from "@/components/ContentWindow";
 import TypewriterText from "@/components/TypewriterText";
 import { TYPEWRITER_SPEED } from "@/const";
 import { useState } from "react";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import DeweyDialog from "./dialogs/DeweyDialog";
 import { Dialogs } from "./dialogs";
 import StoreAlertsDialog from "./dialogs/StoreAlertsDialog";
@@ -23,6 +24,7 @@ import OwesaDialog from "./dialogs/OwesaDialog";
 
 const ProjectsPage = () => {
   const [selectedDialog, setSelectedDialog] = useState<Dialogs | null>(null);
+  const isWide = useMediaQuery("(min-width: 1500px)");
 
   const projects: Project[] = [
     {
@@ -95,7 +97,8 @@ const ProjectsPage = () => {
 
         <Grid
           container
-          spacing={{ xs: 3, lg: 5 }}
+          columns={{ lg: 4 }}
+          spacing={isWide ? 12 : { lg: 5 }}
           sx={{
             width: "70vw",
             height: "80%",
@@ -104,11 +107,13 @@ const ProjectsPage = () => {
           }}
         >
           {projects.map((project, index) => (
-            <ProjectCard
+            <Grid
               key={project.title}
-              project={project}
-              entryDelay={index * 0.1 + 0.4}
-            />
+              size={1}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <ProjectCard project={project} entryDelay={index * 0.1 + 0.4} />
+            </Grid>
           ))}
         </Grid>
       </div>

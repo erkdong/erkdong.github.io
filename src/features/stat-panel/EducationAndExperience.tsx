@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import googleLogo from "@/assets/google.svg";
 import hyperloopLogo from "@/assets/hyperloop.svg";
@@ -15,19 +16,25 @@ const companyLogos = [
 
 const EducationAndExperience = () => {
   const theme = useTheme();
+  const isWide = useMediaQuery("(min-width: 1500px)");
 
   const mainColor = theme.palette.primary.main;
 
   return (
     <div
-      className={clsx("h-full", "flex flex-col", "items-center text-center")}
+      className={clsx(
+        "h-full",
+        "flex flex-col",
+        "justify-evenly items-center text-center"
+      )}
     >
       {/* Education */}
       <div
         className={clsx(
           "w-full",
-          "flex flex-col xl:flex-row items-center gap-4",
-          "my-2 py-3 px-4"
+          "flex flex-col items-center gap-4",
+          "py-3 px-4",
+          isWide && "flex-row"
         )}
         style={rgbGradientBackground(mainColor)}
       >
@@ -39,17 +46,28 @@ const EducationAndExperience = () => {
         />
 
         <div className={clsx("flex flex-col", "text-left")}>
-          <p className="my-2 text-lg text-center xl:text-left">
+          <p
+            className={clsx(
+              "my-2 text-lg text-center",
+              isWide && "text-left"
+            )}
+          >
             University of Southern California
           </p>
           <p
-            className="text-sm text-center xl:text-left"
+            className={clsx(
+              "text-sm text-center",
+              isWide && "text-left"
+            )}
             style={{ color: theme.palette.secondary.main }}
           >
             B.S. Computer Science
           </p>
           <p
-            className="text-sm text-center xl:text-left"
+            className={clsx(
+              "text-sm text-center",
+              isWide && "text-left"
+            )}
             style={{ color: theme.palette.secondary.main }}
           >
             M.S. Computer Science
@@ -73,7 +91,8 @@ const EducationAndExperience = () => {
           className={clsx(
             "flex justify-center",
             "w-full",
-            "gap-2 xl:gap-5",
+            "gap-2",
+            isWide && "gap-5",
             "mb-2"
           )}
         >
