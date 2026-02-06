@@ -12,7 +12,7 @@ const StatPanel = () => {
       className={clsx(
         "flex flex-col",
         "items-center",
-        "w-1/5 min-w-60 max-w-80"
+        "w-1/5 min-w-60 max-w-80",
       )}
       style={{
         gap: BORDER_THICKNESS,
@@ -33,7 +33,7 @@ const StatPanel = () => {
           "bg-zinc-950",
           "w-full",
           "flex-grow",
-          "overflow-scroll"
+          "overflow-scroll-y",
         )}
         cut={CUT_SIZE}
       >
