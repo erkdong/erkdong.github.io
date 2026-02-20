@@ -23,7 +23,7 @@ const WorkPage = () => {
   const theme = useTheme();
 
   const [selectedCompany, setSelectedCompany] = useState<Company>(
-    Company.GOOGLE
+    Company.GOOGLE,
   );
 
   const companies = [
@@ -53,7 +53,7 @@ const WorkPage = () => {
       className={clsx(
         "w-full h-full",
         "flex items-center justify-center",
-        "pb-10"
+        "pb-10",
       )}
     >
       <div className={clsx("w-3/4 h-[80%]", "flex flex-col", "items-center")}>
@@ -79,7 +79,7 @@ const WorkPage = () => {
                 "cursor-pointer",
                 "transition-transform",
                 "duration-100",
-                "rounded-lg"
+                "rounded-lg",
               )}
               style={{
                 border: `2px solid ${theme.palette.primary.light}`,
@@ -88,11 +88,7 @@ const WorkPage = () => {
               onClick={() => handleCompanyClick(company.type)}
             >
               <div
-                className={clsx(
-                  "flex items-center",
-                  "gap-4",
-                  "overflow-scroll"
-                )}
+                className={clsx("flex items-center", "gap-4")}
                 // Skew in the opposite direction to counteract the skew of
                 // the parent
                 style={{ transform: "skewX(30deg)" }}
@@ -105,10 +101,8 @@ const WorkPage = () => {
         </div>
 
         {/* Company details */}
-        <ContentWindow
-          className={clsx("px-7 py-8 flex-grow", "overflow-hidden")}
-        >
-          <div className={clsx("overflow-scroll")}>
+        <ContentWindow className={clsx("px-7 py-8", "overflow-hidden")}>
+          <div className={clsx("overflow-y-auto", "scrollbar-hide")}>
             {selectedCompany === Company.GOOGLE && <GoogleDetails />}
             {selectedCompany === Company.HYPERLOOP && <HyperloopDetails />}
             {selectedCompany === Company.YAHOO && <YahooDetails />}

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 
 import googleLogo from "@/assets/google.svg";
 import hyperloopLogo from "@/assets/hyperloop.svg";
@@ -16,7 +15,6 @@ const companyLogos = [
 
 const EducationAndExperience = () => {
   const theme = useTheme();
-  const isWide = useMediaQuery("(min-width: 1500px)");
 
   const mainColor = theme.palette.primary.main;
 
@@ -25,7 +23,7 @@ const EducationAndExperience = () => {
       className={clsx(
         "h-full",
         "flex flex-col",
-        "justify-evenly items-center text-center"
+        "justify-evenly items-center text-center",
       )}
     >
       {/* Education */}
@@ -34,40 +32,28 @@ const EducationAndExperience = () => {
           "w-full",
           "flex flex-col items-center gap-4",
           "py-3 px-4",
-          isWide && "flex-row"
         )}
         style={rgbGradientBackground(mainColor)}
       >
         <img
           src={uscLogo}
           alt="USC Logo"
-          className={clsx("max-w-24")}
-          style={{ width: "15vw", filter: "invert(80%)" }}
+          className={clsx("w-full max-w-24 4xl:max-w-36")}
+          style={{ filter: "invert(80%)" }}
         />
 
         <div className={clsx("flex flex-col", "text-left")}>
-          <p
-            className={clsx(
-              "my-2 text-lg text-center",
-              isWide && "text-left"
-            )}
-          >
+          <p className={clsx("my-2 text-lg 4xl:text-2xl text-center")}>
             University of Southern California
           </p>
           <p
-            className={clsx(
-              "text-sm text-center",
-              isWide && "text-left"
-            )}
+            className={clsx("text-sm 4xl:text-lg text-center")}
             style={{ color: theme.palette.secondary.main }}
           >
             B.S. Computer Science
           </p>
           <p
-            className={clsx(
-              "text-sm text-center",
-              isWide && "text-left"
-            )}
+            className={clsx("text-sm 4xl:text-lg text-center")}
             style={{ color: theme.palette.secondary.main }}
           >
             M.S. Computer Science
@@ -80,32 +66,36 @@ const EducationAndExperience = () => {
         className={clsx(
           "w-full",
           "relative",
-          "flex flex-col items-center justify-center",
-          "py-3 px-4"
+          "flex flex-col items-center justify-center gap-6",
+          "py-3 px-4",
         )}
         style={rgbGradientBackground(mainColor)}
       >
-        <p className="text-lg mb-4">Industry Experience</p>
+        <p className="text-lg 4xl:text-2xl">Industry Experience</p>
 
         <div
           className={clsx(
-            "flex justify-center",
+            "flex justify-center 4xl:flex-col",
             "w-full",
             "gap-2",
-            isWide && "gap-5",
-            "mb-2"
+            "2xl:gap-5",
+            "mb-2",
           )}
         >
           {companyLogos.map(({ src, label }) => (
             <div
               key={src}
-              className={clsx("flex flex-col items-center", "gap-2")}
+              className={clsx(
+                "flex flex-col items-center",
+                "4xl:flex-row 4xl:gap-4 4xl:pl-16",
+                "gap-2",
+              )}
             >
               <div
                 className={clsx(
                   "flex justify-center items-center",
                   "p-3",
-                  "border-2 rounded-full"
+                  "border-2 rounded-full",
                 )}
                 style={{
                   borderColor: theme.palette.primary.main,
@@ -119,8 +109,9 @@ const EducationAndExperience = () => {
                   style={{ maxWidth: "unset" }}
                 />
               </div>
+
               <div className={clsx("flex flex-col", "text-left")}>
-                <p className="text-md">{label}</p>
+                <p className="text-md 4xl:text-xl">{label}</p>
               </div>
             </div>
           ))}

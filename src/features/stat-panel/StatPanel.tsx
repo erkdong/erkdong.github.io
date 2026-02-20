@@ -12,7 +12,7 @@ const StatPanel = () => {
       className={clsx(
         "flex flex-col",
         "items-center",
-        "w-1/5 min-w-60 max-w-80",
+        "w-1/5 min-w-60 max-w-80 shrink-0",
       )}
       style={{
         gap: BORDER_THICKNESS,

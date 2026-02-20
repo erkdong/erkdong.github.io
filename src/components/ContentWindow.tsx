@@ -22,7 +22,7 @@ const ContentWindow = ({ children, className, style }: ContentWindowProps) => {
         "transition-all",
         "duration-1000",
         "ease-in-out",
-        className
+        className,
       )}
       style={{
         border: `2px solid ${theme.palette.primary.light}`,
