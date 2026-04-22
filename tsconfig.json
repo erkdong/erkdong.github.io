@@ -15,7 +15,6 @@
     "moduleDetection": "force",
 
     /* Path aliases */
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
