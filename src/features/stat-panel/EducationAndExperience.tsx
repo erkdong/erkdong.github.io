@@ -30,30 +30,32 @@ const EducationAndExperience = () => {
       <div
         className={clsx(
           "w-full",
-          "flex flex-col items-center gap-4",
-          "py-3 px-4",
+          "flex flex-col items-center gap-2",
+          "py-4 px-6",
         )}
         style={rgbGradientBackground(mainColor)}
       >
-        <img
-          src={uscLogo}
-          alt="USC Logo"
-          className={clsx("w-full max-w-24 4xl:max-w-36")}
-          style={{ filter: "invert(80%)" }}
-        />
-
-        <div className={clsx("flex flex-col", "text-left")}>
-          <p className={clsx("my-2 text-lg 4xl:text-2xl text-center")}>
+        <div className={clsx("flex items-center justify-center gap-4")}>
+          <img
+            src={uscLogo}
+            alt="USC Logo"
+            className={clsx("shrink-0")}
+            style={{ filter: "invert(80%)", width: "4.2rem" }}
+          />
+          <p className={clsx("text-lg text-left")}>
             University of Southern California
           </p>
+        </div>
+
+        <div className={clsx("flex flex-col items-center")}>
           <p
-            className={clsx("text-sm 4xl:text-lg text-center")}
+            className={clsx("text-sm text-center")}
             style={{ color: theme.palette.secondary.main }}
           >
             B.S. Computer Science
           </p>
           <p
-            className={clsx("text-sm 4xl:text-lg text-center")}
+            className={clsx("text-sm text-center")}
             style={{ color: theme.palette.secondary.main }}
           >
             M.S. Computer Science
@@ -71,11 +73,11 @@ const EducationAndExperience = () => {
         )}
         style={rgbGradientBackground(mainColor)}
       >
-        <p className="text-lg 4xl:text-2xl">Industry Experience</p>
+        <p className="text-lg">Industry Experience</p>
 
         <div
           className={clsx(
-            "flex justify-center 4xl:flex-col",
+            "flex justify-center",
             "w-full",
             "gap-2",
             "2xl:gap-5",
@@ -85,11 +87,7 @@ const EducationAndExperience = () => {
           {companyLogos.map(({ src, label }) => (
             <div
               key={src}
-              className={clsx(
-                "flex flex-col items-center",
-                "4xl:flex-row 4xl:gap-4 4xl:pl-16",
-                "gap-2",
-              )}
+              className={clsx("flex flex-col items-center", "gap-2")}
             >
               <div
                 className={clsx(
@@ -111,7 +109,7 @@ const EducationAndExperience = () => {
               </div>
 
               <div className={clsx("flex flex-col", "text-left")}>
-                <p className="text-md 4xl:text-xl">{label}</p>
+                <p className="text-md">{label}</p>
               </div>
             </div>
           ))}

@@ -15,7 +15,6 @@ import TypewriterText from "@/components/TypewriterText";
 import { TYPEWRITER_SPEED } from "@/const";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import DeweyDialog from "./dialogs/DeweyDialog";
 import { Dialogs } from "./dialogs";
 import StoreAlertsDialog from "./dialogs/StoreAlertsDialog";
 import MinesweeperDialog from "./dialogs/MinesweeperDialog";
@@ -34,8 +33,14 @@ const ProjectsPage = () => {
         window.open(
           "https://forget-me-not.co",
           "_blank",
-          "noopener,noreferrer"
+          "noopener,noreferrer",
         ),
+    },
+    {
+      title: "Dewey",
+      img: dewey,
+      onClick: () =>
+        window.open("https://heydewey.com", "_blank", "noopener,noreferrer"),
     },
     {
       title: "HungyHungy",
@@ -53,11 +58,7 @@ const ProjectsPage = () => {
       img: futurbeats,
       onClick: () => setSelectedDialog(Dialogs.FUTURBEATS),
     },
-    {
-      title: "Dewey",
-      img: dewey,
-      onClick: () => setSelectedDialog(Dialogs.DEWEY),
-    },
+
     {
       title: "Twitch store alerts",
       img: twitch,
@@ -75,7 +76,7 @@ const ProjectsPage = () => {
       className={clsx(
         "relative",
         "w-full h-full",
-        "flex items-center justify-center"
+        "flex items-center justify-center",
       )}
     >
       <div
@@ -83,7 +84,7 @@ const ProjectsPage = () => {
           "w-3/4 h-[80%]",
           "flex flex-col",
           "items-center",
-          "gap-8 xl:gap-12"
+          "gap-8 xl:gap-12",
         )}
       >
         {/* Introduction */}
@@ -98,7 +99,7 @@ const ProjectsPage = () => {
         <Grid
           container
           columns={{ lg: 4 }}
-          spacing={isWide ? 12 : { lg: 5 }}
+          spacing={isWide ? 8 : { lg: 5 }}
           sx={{
             width: "70vw",
             height: "80%",
@@ -120,10 +121,6 @@ const ProjectsPage = () => {
 
       <FuturBeatsDialog
         open={selectedDialog === Dialogs.FUTURBEATS}
-        onClose={() => setSelectedDialog(null)}
-      />
-      <DeweyDialog
-        open={selectedDialog === Dialogs.DEWEY}
         onClose={() => setSelectedDialog(null)}
       />
       <StoreAlertsDialog

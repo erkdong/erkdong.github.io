@@ -12,7 +12,7 @@ const skills = [
   "agent2agent",
   "aws",
   "mcp",
-  "cloudformation",
+  "mobile",
   "ci/cd",
 ];
 
@@ -26,7 +26,7 @@ const Skills = () => {
         "fade-out-edges-horizontal",
         "self-center",
         "w-3/4",
-        "border-2 border-dashed"
+        "border-2 border-dashed",
       )}
       style={{ borderColor: mainColor }}
     />
@@ -34,7 +34,7 @@ const Skills = () => {
 
   return (
     <div
-      className={clsx("flex flex-col", "w-full h-full", "py-8", "gap-4")}
+      className={clsx("flex flex-col", "w-full h-28", "py-4", "gap-4")}
       style={rgbGradientBackground(mainColor)}
     >
       {divider}
@@ -43,7 +43,7 @@ const Skills = () => {
         className={clsx(
           "overflow-hidden",
           "relative",
-          "fade-out-edges-horizontal"
+          "fade-out-edges-horizontal",
         )}
       >
         <div

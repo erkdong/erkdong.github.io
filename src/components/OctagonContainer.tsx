@@ -35,8 +35,10 @@ const OctagonContainer: React.FC<OctagonContainerProps> = ({
 
   const { width, height } = dimensions;
 
-  // Ensure cuts don't exceed half of width or height
-  const maxCut = Math.min(width, height) / Math.SQRT2 / 2;
+  // Ensure cuts don't exceed half of width or height (degenerate polygon).
+  // diagCut (the axis projection) must be <= min(w, h) / 2, which means
+  // cut (hypotenuse) must be <= min(w, h) / SQRT2.
+  const maxCut = Math.min(width, height) / Math.SQRT2;
   const clampedCut = Math.min(cut, maxCut);
   const diagCut = clampedCut / Math.SQRT2;
 
