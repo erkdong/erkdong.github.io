@@ -30,7 +30,7 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
           "flex items-center justify-center",
           "border-2",
           "p-2",
-          "cursor-pointer"
+          "cursor-pointer",
         )}
         style={{
           width: "14vw",
@@ -50,13 +50,13 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
             "flex items-center justify-center",
             "w-full h-full",
             "border-4",
-            "p-8"
+            "p-8",
           )}
           sx={{
             borderColor: theme.palette.primary.main,
             background: `radial-gradient(circle, ${rgbWithAlpha(
               theme.palette.primary.light,
-              0.1
+              0.1,
             )} ${isHovered ? "0%" : "50%"}, ${
               theme.palette.primary.main
             } 100%)`,
@@ -66,12 +66,15 @@ const ProjectCard = ({ project, entryDelay = 0 }: ProjectCardProps) => {
           <img
             src={project.img}
             alt={project.title}
-            className={clsx("h-full")}
+            className={clsx("h-full p-1")}
           />
 
           {/* Project title */}
           <p
-            className={clsx("absolute bottom-1 left-2", "text-base xl:text-lg")}
+            className={clsx(
+              "absolute bottom-0.5 left-1",
+              "text-base xl:text-lg",
+            )}
           >
             {project.title}
           </p>

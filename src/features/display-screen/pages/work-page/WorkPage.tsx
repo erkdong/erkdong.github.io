@@ -6,6 +6,7 @@ import hyperloopLogo from "@/assets/hyperloop.svg";
 import yahooLogo from "@/assets/yahoo.svg";
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 import { TYPEWRITER_SPEED, rgbWithAlpha } from "@/const";
 
 import "./WorkPage.css";
@@ -68,35 +69,48 @@ const WorkPage = () => {
 
         {/* Company cards */}
         <div className={clsx("flex", "gap-10", "my-5")}>
-          {companies.map((company) => (
-            <div
+          {companies.map((company, index) => (
+            <motion.div
               key={company.type}
-              className={clsx(
-                "company-card",
-                "flex",
-                "items-center",
-                "px-10 py-2",
-                "cursor-pointer",
-                "transition-transform",
-                "duration-100",
-                "rounded-lg",
-              )}
-              style={{
-                border: `2px solid ${theme.palette.primary.light}`,
-                backgroundColor: rgbWithAlpha(theme.palette.primary.dark, 0.5),
+              className={clsx("flex")}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 18,
+                delay: index * 0.1 + 0.4,
               }}
-              onClick={() => handleCompanyClick(company.type)}
             >
               <div
-                className={clsx("flex items-center", "gap-4")}
-                // Skew in the opposite direction to counteract the skew of
-                // the parent
-                style={{ transform: "skewX(30deg)" }}
+                className={clsx(
+                  "company-card",
+                  "flex items-center h-full",
+                  "px-10 py-2",
+                  "cursor-pointer",
+                  "transition-transform duration-100",
+                  "rounded-lg",
+                )}
+                style={{
+                  border: `2px solid ${theme.palette.primary.light}`,
+                  backgroundColor: rgbWithAlpha(
+                    theme.palette.primary.dark,
+                    0.5,
+                  ),
+                }}
+                onClick={() => handleCompanyClick(company.type)}
               >
-                <img width={50} src={company.logo} alt={company.label} />
-                <p className={clsx("text-xl")}>{company.label}</p>
+                <div
+                  className={clsx("flex items-center", "gap-4")}
+                  // Skew in the opposite direction to counteract the skew of
+                  // the parent
+                  style={{ transform: "skewX(30deg)" }}
+                >
+                  <img width={50} src={company.logo} alt={company.label} />
+                  <p className={clsx("text-xl")}>{company.label}</p>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
