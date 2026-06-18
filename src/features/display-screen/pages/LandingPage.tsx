@@ -9,8 +9,7 @@ const LandingPage = () => {
       <div className={clsx("w-3/4", "flex flex-col", "items-center")}>
         <ContentWindow className={clsx("px-7 py-10")}>
           <TypewriterText
-            text="Hi there! I'm Eric, an app developer and freelance software
-      engineer."
+            text="Hi there! I'm Eric, an app developer and software engineer consultant."
             className={clsx("text-3xl font-medium", "mb-4")}
             speed={TYPEWRITER_SPEED}
           />
