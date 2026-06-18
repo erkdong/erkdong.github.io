@@ -1,0 +1,40 @@
+# Eric Dong
+
+> Eric Dong is an app developer and consultant with close to a
+> decade in the tech industry, including roughly six years at Google. He now works
+> independently building apps and websites for clients and his own products.
+
+## About
+
+- Name: Eric Dong
+- Role: App developer and consultant
+- Education: B.S. and M.S. in Computer Science, University of Southern California (USC)
+- Core skills: React, Angular, TypeScript, Python, LangGraph, Agent2Agent (A2A), AWS, MCP, mobile development, CI/CD
+
+## Experience
+
+- Google — Software Engineer, full time, 2019–2024
+  - Cloud Marketplace (2021–2024): full-stack engineer on Google Cloud's marketplace
+    platform; one of the earliest engineers on a new team, providing technical
+    leadership, project ownership, and mentorship.
+  - Google Ads (2019–2021): full-stack engineer on advertiser-facing tools for
+    planning and allocating ad spend; delivered an integration with Search Ads 360.
+- Hyperloop One — ~3 years
+- Yahoo — ~1 year
+
+## Projects
+
+- ForgetMeNot — https://forget-me-not.co
+- Dewey — https://heydewey.com
+- HungyHungy — https://hungyhungy.com
+- Owesa
+- FuturBeats
+- Twitch store alerts — a Twitch streamer who also sells merchandise on an online store
+- FPS Minesweeper
+
+## Links
+
+- Website: https://erkdong.com
+- LinkedIn: https://www.linkedin.com/in/dongeric/
+- GitHub: https://github.com/erkdong
+- Resume: https://resume.erkdong.com
