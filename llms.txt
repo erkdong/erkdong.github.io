@@ -1,13 +1,14 @@
 # Eric Dong
 
 > Eric Dong is an app developer and consultant with close to a
-> decade in the tech industry, including roughly six years at Google. He now works
-> independently building apps and websites for clients and his own products.
+> decade in the tech industry, including roughly six years at Google. He now runs
+> Dendric, a web and app development studio, building for clients and his own products.
 
 ## About
 
 - Name: Eric Dong
-- Role: App developer and consultant
+- Role: App developer and consultant; founder of Dendric (https://www.dendric.dev/)
+- Based in: San Diego, California
 - Education: B.S. and M.S. in Computer Science, University of Southern California (USC)
 - Core skills: React, Angular, TypeScript, Python, LangGraph, Agent2Agent (A2A), AWS, MCP, mobile development, CI/CD
 
@@ -35,6 +36,8 @@
 ## Links
 
 - Website: https://erkdong.com
+- Studio: https://www.dendric.dev
+- Profile at Dendric: https://www.dendric.dev/about/
 - LinkedIn: https://www.linkedin.com/in/dongeric/
 - GitHub: https://github.com/erkdong
 - Resume: https://resume.erkdong.com
