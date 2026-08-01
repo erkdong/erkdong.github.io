@@ -2,6 +2,9 @@ import ContentWindow from "@/components/ContentWindow";
 import TypewriterText from "@/components/TypewriterText";
 import clsx from "clsx";
 import { TYPEWRITER_SPEED } from "@/const";
+import { LANDING_LINK_TEXT } from "@/const/landing-link";
+
+import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
@@ -27,6 +30,13 @@ const LandingPage = () => {
       effectively with others and develop high quality software."
             className={clsx("text-lg")}
             startDelay={600}
+            speed={TYPEWRITER_SPEED}
+          />
+
+          <TypewriterText
+            text={`These days I run Dendric, a web and app development studio. <a href="https://www.dendric.dev/" target="_blank" rel="noopener" class="terminal-link">${LANDING_LINK_TEXT}</a>`}
+            className={clsx("text-lg")}
+            startDelay={900}
             speed={TYPEWRITER_SPEED}
           />
         </ContentWindow>

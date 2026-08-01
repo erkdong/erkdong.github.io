@@ -12,11 +12,13 @@ import fs from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { preview } from "vite";
 import { chromium } from "playwright";
+import { LANDING_LINK_TEXT } from "../src/const/landing-link.js";
 
 const ROUTES = ["/"];
-// A distinctive tail of the last landing paragraph; present only once all three
-// TypewriterText paragraphs have finished typing.
-const READY_TEXT = "high quality software";
+// The landing link is the last thing typed, so its text appearing means all four
+// TypewriterText paragraphs have finished. It embeds an anchor (TypewriterText
+// writes via innerHTML), so snapshotting earlier would capture a half-typed tag.
+const READY_TEXT = LANDING_LINK_TEXT;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
@@ -41,9 +43,11 @@ async function main() {
     for (const route of ROUTES) {
       await page.goto(origin + route, { waitUntil: "load", timeout: 30000 });
       // Wait for the typewriter to finish so the typed copy is in the DOM.
+      // Case-insensitive: innerText returns *rendered* text, and the landing
+      // link is styled `text-transform: uppercase`.
       await page.waitForFunction(
-        (text) => document.body.innerText.includes(text),
-        READY_TEXT,
+        (text) => document.body.innerText.toLowerCase().includes(text),
+        READY_TEXT.toLowerCase(),
         { timeout: 30000 },
       );
       await page.waitForTimeout(300);
